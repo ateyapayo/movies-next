@@ -2,7 +2,7 @@ import Movie from "./Movie";
 
 export default async function Home() {
   const data = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
+    `https://api.themoviedb.org/4/list/8248147?page=1&api_key=${process.env.API_KEY}&language=en-US&page=1`
   );
 
   const res = await data.json();
@@ -14,9 +14,9 @@ export default async function Home() {
           <Movie
             key={movie.id}
             id={movie.id}
-            title={movie.title}
+            title={movie.title || movie.name}
             poster_path={movie.poster_path}
-            release_date={movie.release_date}
+            release_date={movie.release_date || movie.first_air_date}
           />
         ))}
       </div>
