@@ -19,6 +19,7 @@ export default async function MovieDetail({ params }) {
   );
   const res = await data.json();
 
+
   return (
     <div>
       <div className="">
