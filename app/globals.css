@@ -6,6 +6,40 @@ body {
   background-color: #141414;
 }
 
-h1, h2, p {
+h1,
+h2,
+p,
+.star {
   color: white;
+}
+
+.star {
+  width: 20px;
+}
+
+.popularity {
+  display: flex;
+  align-items: center;
+  height: 37px;
+}
+
+.badges {
+  display: flex;
+}
+@media screen and (max-width: 630px) {
+  .badges {
+    flex-direction: column;
+  }
+}
+
+.big-pop {
+  max-width: 164px;
+}
+
+.small-pop {
+  max-width: 154px;
+}
+
+.badges {
+  /* margin-top: 1em; */
 }

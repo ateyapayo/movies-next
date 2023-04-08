@@ -1,4 +1,5 @@
 import Movie from "./Movie";
+import Star from "./Star";
 
 export default async function Home() {
   const data = await fetch(
@@ -10,14 +11,15 @@ export default async function Home() {
   return (
     <main>
       <div className="grid gap-16 grid-cols-fluid">
-        {res.results.map((movie) => (
+        {" "}
+        {res?.results?.map((movie) => (
           <Movie
-            key={movie.id}
-            id={movie.id}
-            title={movie.title || movie.name}
-            poster_path={movie.poster_path}
-            release_date={movie.release_date || movie.first_air_date}
-            media_type={movie.media_type}
+            key={movie?.id}
+            id={movie?.id}
+            title={movie?.title || movie?.name}
+            poster_path={movie?.poster_path}
+            media_type={movie?.media_type}
+            vote_average={movie?.vote_average}
           />
         ))}
       </div>
