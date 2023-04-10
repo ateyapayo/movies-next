@@ -8,7 +8,7 @@ export default async function Home() {
   const res = await data.json();
   console.log(res);
   return (
-    <main className="mt-8">
+    <main className="my-8">
       <div className="grid gap-16 grid-cols-fluid">
         {" "}
         {res?.results?.map((movie) => (

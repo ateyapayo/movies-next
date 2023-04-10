@@ -48,5 +48,18 @@ p,
 
 .star-card {
   color: #e50914;
-  width: 19px;
+  width: 20px;
+}
+
+.rating {
+  align-items: center;
+}
+
+.vote {
+  font-size: 14px;
+}
+
+.genre {
+  font-size: 12px;
+  background-color: #e50914;
 }
