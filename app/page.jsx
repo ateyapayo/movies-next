@@ -1,5 +1,4 @@
 import Movie from "./Movie";
-import Star from "./Star";
 
 export default async function Home() {
   const data = await fetch(
@@ -9,7 +8,7 @@ export default async function Home() {
   const res = await data.json();
   console.log(res);
   return (
-    <main>
+    <main className="mt-8">
       <div className="grid gap-16 grid-cols-fluid">
         {" "}
         {res?.results?.map((movie) => (

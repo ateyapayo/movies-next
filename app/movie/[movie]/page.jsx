@@ -21,7 +21,7 @@ export default async function MovieDetail({ params }) {
   const res = await data.json();
 
   return (
-    <div>
+    <div className="mt-8">
       <div>
         <h2 className="text-4xl">{res?.title}</h2>
         <h1 className="text-lg">Movie</h1>
@@ -40,11 +40,11 @@ export default async function MovieDetail({ params }) {
           >
             <h2 className="mr-1">Popularity: </h2>
             <Star />
-            <h2 className="ml-1">{Math.round(res?.popularity / 2.5)}%</h2>
+            <h2 className="ml-1">{Math.round(res?.popularity / 2.7)}%</h2>
           </div>
         </div>
         <Image
-          className="my-12 w-full"
+          className="my-10 w-full"
           src={imagePath + res.backdrop_path}
           alt={res?.title}
           width={1000}
@@ -53,7 +53,8 @@ export default async function MovieDetail({ params }) {
         />
       </div>
       <div className="my-4">
-        <p className="text-lg">{res.overview}</p>
+        <h2 className="text-2xl mb-2">Description:</h2>
+        <p className="text-lg desc">{res.overview}</p>
       </div>
     </div>
   );

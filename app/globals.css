@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 body {
+  margin: 0 auto;
   background-color: #141414;
+  width: 85%;
 }
 
 h1,
@@ -40,6 +42,11 @@ p,
   max-width: 154px;
 }
 
-.badges {
-  /* margin-top: 1em; */
+.desc {
+  text-align: justify;
+}
+
+.star-card {
+  color: #e50914;
+  width: 19px;
 }

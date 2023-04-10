@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import StarIcon from "@mui/icons-material/Star";
 
 export default function Movie({
   title,
@@ -14,7 +17,10 @@ export default function Movie({
     <div>
       <p>{media_type === "tv" ? "TV Show" : "Movie"}</p>
       <h1>{title}</h1>
-      <h2>{vote_average}</h2>
+      <div className="flex mb-1">
+        <StarIcon className="star-card mr-1 " />
+        <h2>{vote_average}</h2>
+      </div>
 
       <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
         <Image
