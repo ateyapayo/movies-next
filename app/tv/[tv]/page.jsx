@@ -29,7 +29,7 @@ export default async function MovieDetail({ params }) {
         <h2>Episodes length: {res?.last_episode_to_air?.runtime} minutes</h2>
         <div className="flex justify-between badges">
           <div>
-            <h2 className="bg-green-600 inline-block my-2 py-2 px-4 rounded-lg text-sm">
+            <h2 className="bg-blue-600 inline-block my-2 py-2 px-4 rounded-lg text-sm">
               {res.status}
             </h2>
           </div>
