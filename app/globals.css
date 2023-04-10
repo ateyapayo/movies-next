@@ -8,6 +8,31 @@ body {
   width: 85%;
 }
 
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  min-width: 85px;
+}
+
+ul {
+  width: 80%;
+  align-items: center;
+}
+li {
+  margin-right: 1.8em;
+  font-size: 13px;
+  font-weight: 100px;
+  color: white;
+}
+
+.active {
+  font-weight: 800;
+  color: blue !important;
+}
+
 h1,
 h2,
 p,
@@ -62,4 +87,8 @@ p,
 .genre {
   font-size: 12px;
   background-color: #e50914;
+}
+
+input {
+  border: 1px solid white;
 }

@@ -18,7 +18,9 @@ export default function Movie({
       <p className="inline-block my-2 py-1 px-2 rounded-lg genre">
         {media_type === "tv" ? "TV Show" : "Movie"}
       </p>
-      <h1>{title}</h1>
+      <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
+        <h1>{title}</h1>
+      </Link>
       <div className="flex mb-1 rating">
         <StarIcon className="star-card mr-1 " />
         <h2 className="vote">{vote_average}</h2>
