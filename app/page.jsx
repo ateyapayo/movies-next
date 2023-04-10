@@ -2,10 +2,10 @@ import Movie from "./Movie";
 
 export default async function Home() {
   const page1Data = await fetch(
-    `https://api.themoviedb.org/4/list/8248147?page=1&api_key=${process.env.API_KEY}&language=en-US&page=1`
+    `https://api.themoviedb.org/4/list/8248522?page=1&api_key=${process.env.API_KEY}&language=en-US&page=1`
   );
   const page2Data = await fetch(
-    `https://api.themoviedb.org/4/list/8248147?page=1&api_key=${process.env.API_KEY}&language=en-US&page=2`
+    `https://api.themoviedb.org/4/list/8248522?page=1&api_key=${process.env.API_KEY}&language=en-US&page=2`
   );
 
   const page1Res = await page1Data.json();
