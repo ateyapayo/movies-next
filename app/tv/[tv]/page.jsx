@@ -21,7 +21,7 @@ export default async function MovieDetail({ params }) {
   );
   const res = await data.json();
 
-  const vote = Math.floor(res?.vote_average) / 2;
+  const vote = Math.floor(res?.vote_average / 2);
 
   const fullStars = [];
 
@@ -55,8 +55,8 @@ export default async function MovieDetail({ params }) {
             </div>
 
             <h2 className="text-sm pt-3">
-              {res?.popularity} ratings with an average of {vote} out of 5
-              stars.
+              {res?.popularity} ratings with an average of{" "}
+              {Math.floor(res?.vote_average / 2)} out of 5 stars.
             </h2>
           </div>
         </div>
