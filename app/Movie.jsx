@@ -32,7 +32,7 @@ export default function Movie({
           height={800}
           src={imagePath + poster_path}
           alt={title}
-          className="card-image"
+          // className="card-image"
         />
       </Link>
     </div>

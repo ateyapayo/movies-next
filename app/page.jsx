@@ -29,6 +29,14 @@ export default async function Home() {
             vote_average={movie?.vote_average}
           />
         ))}
+        {/* <Movie
+          key={results?.id}
+          id={results?.id}
+          title={results?.title || results?.name}
+          poster_path={results?.poster_path}
+          media_type={results?.media_type}
+          vote_average={results?.vote_average}
+        /> */}
       </div>
     </main>
   );

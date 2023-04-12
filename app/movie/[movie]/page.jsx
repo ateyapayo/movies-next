@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Star from "@/app/Star";
+import StarFull from "@/app/StarFull";
 
 export async function generateStaticParams() {
   const data = await fetch(
@@ -39,7 +39,7 @@ export default async function MovieDetail({ params }) {
             }`}
           >
             <h2 className="mr-1">Popularity: </h2>
-            <Star />
+            <StarFull />
             <h2 className="ml-1">{Math.round(res?.popularity / 2.7)}%</h2>
           </div>
         </div>

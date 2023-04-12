@@ -40,22 +40,19 @@ p,
 }
 
 .star {
-  width: 20px;
-}
-
-.popularity {
   display: flex;
-  align-items: center;
-  height: 37px;
+  width: 20px;
+  color: #e50914;
+  align-self: center;
 }
 
 .badges {
   display: flex;
+  align-items: center;
 }
-@media screen and (max-width: 630px) {
-  .badges {
-    flex-direction: column;
-  }
+
+.status {
+  align-self: center;
 }
 
 .big-pop {
@@ -90,4 +87,41 @@ p,
 
 input {
   border: 1px solid white;
+}
+
+.popularity {
+ flex-direction: column;
+ align-self: center;
+}
+
+.rating {
+  margin-right: 1em;
+}
+
+/* .card-image {
+  object-fit: cover;
+  height: 424px;
+  width: 298px;
+} */
+
+.stars {
+  align-items: center;
+  margin: 0 auto;
+  width: 70%;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 820px) {
+  .badges {
+    flex-direction: column;
+  }
+
+  .popularity {
+    margin-top: 1em;
+   }
+
+   .status {
+    margin-top: .65em;
+    align-self: start;
+  }
 }
