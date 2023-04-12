@@ -1,5 +1,6 @@
 import Image from "next/image";
 import StarFull from "@/app/StarFull";
+import StarEmpty from "@/app/StarEmpty";
 
 export async function generateStaticParams() {
   const data = await fetch(
@@ -20,6 +21,20 @@ export default async function MovieDetail({ params }) {
   );
   const res = await data.json();
 
+  const vote = Math.round(res?.vote_average / 2);
+
+  const fullStars = [];
+
+  for (let i = 0; i < vote; i++) {
+    fullStars.push(<StarFull className="rating" key={i} />);
+  }
+
+  const emptyStars = [];
+
+  for (let i = 0; i < 5 - vote; i++) {
+    emptyStars.push(<StarEmpty className="rating" key={i} />);
+  }
+
   return (
     <div className="mt-8">
       <div>
@@ -27,20 +42,22 @@ export default async function MovieDetail({ params }) {
         <h1 className="text-lg">Movie</h1>
         <h1 className="text-lg ">{res?.release_date}</h1>
         <h2>Runtime: {res?.runtime} minutes</h2>
-        <div className="flex justify-between badges">
-          <div>
-            <h2 className="bg-blue-600 inline-block my-2 py-2 px-4 rounded-lg text-sm">
+        <div className="flex justify-between badges mt-2">
+          <div className="status">
+            <h2 className="bg-blue-600 inline-block py-2 px-4 rounded-lg text-sm ">
               {res.status}
             </h2>
           </div>
-          <div
-            className={` bg-red-600 inline-block my-2 py-2 px-4 rounded-lg text-sm popularity ${
-              res?.popularity > 15 ? "big-pop" : "small-pop"
-            }`}
-          >
-            <h2 className="mr-1">Popularity: </h2>
-            <StarFull />
-            <h2 className="ml-1">{Math.round(res?.popularity / 2.7)}%</h2>
+          <div className="popularity flex">
+            <div className="flex stars">
+              {fullStars}
+              {emptyStars}
+            </div>
+
+            <h2 className="text-sm pt-3">
+              {res?.popularity} ratings with an average of{" "}
+              {(res?.vote_average / 2).toFixed(2)} out of 5 stars.
+            </h2>
           </div>
         </div>
         <Image

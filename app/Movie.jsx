@@ -23,7 +23,7 @@ export default function Movie({
       </Link>
       <div className="flex mb-1 rating">
         <StarIcon className="star-card mr-1 " />
-        <h2 className="vote">{vote_average}</h2>
+        <h2 className="vote">{Math.round(vote_average / 2)}</h2>
       </div>
 
       <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
