@@ -14,7 +14,7 @@ body {
 }
 
 .logo {
-  min-width: 85px;
+  min-width: 95px;
 }
 
 ul {
@@ -90,8 +90,8 @@ input {
 }
 
 .popularity {
- flex-direction: column;
- align-self: center;
+  flex-direction: column;
+  align-self: center;
 }
 
 .rating {
@@ -118,10 +118,20 @@ input {
 
   .popularity {
     margin-top: 1em;
-   }
+  }
 
-   .status {
-    margin-top: .65em;
+  .status {
+    margin-top: 0.65em;
     align-self: start;
   }
+}
+
+.search-container {
+  height: 36px;
+  width: 275px;
+}
+
+input {
+  height: 36px;
+  width: 275px;
 }

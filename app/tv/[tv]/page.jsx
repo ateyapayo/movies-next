@@ -55,7 +55,7 @@ export default async function MovieDetail({ params }) {
             </div>
 
             <h2 className="text-sm pt-3">
-              {res?.popularity} ratings with an average of{" "}
+              {res?.vote_count.toLocaleString()} ratings with an average of{" "}
               {(res?.vote_average / 2).toFixed(2)} out of 5 stars.
             </h2>
           </div>

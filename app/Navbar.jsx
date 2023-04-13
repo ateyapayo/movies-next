@@ -21,8 +21,8 @@ export default function Navbar({}) {
           <li className={pathname == "/about" ? "active" : ""}>About</li>
         </Link>
       </ul>
-      <div>
-        <input className="bg-transparent py-1" />
+      <div className="search-container">
+        <input className={pathname == "/" ? "bg-transparent py-1" : "hidden"} />
       </div>
     </div>
   );
