@@ -40,7 +40,7 @@ export default async function MovieDetail({ params }) {
       <div>
         <h2 className="text-4xl">{res.name}</h2>
         <h2>TV Show</h2>
-        <h1 className="text-lg">Last air date: {res.first_air_date}</h1>
+        <h1 className="text-lg">First air date: {res.first_air_date}</h1>
         <h2>Episodes length: {res?.last_episode_to_air?.runtime} minutes</h2>
         <div className="flex justify-between badges mt-2">
           <div className="status">
@@ -69,7 +69,7 @@ export default async function MovieDetail({ params }) {
           priority
         />
       </div>
-      <div className="my-4">
+      <div className="my-4 description">
         <h2 className="text-2xl mb-2">Description:</h2>
         <p className="text-lg desc">{res.overview}</p>
       </div>

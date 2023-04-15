@@ -155,3 +155,17 @@ input {
     width: 45%;
   }
 }
+
+footer {
+  margin-top: 6.5em;
+  margin-bottom: 1em;
+}
+
+footer p {
+  font-size: 15px;
+  text-align: center;
+}
+
+.ending {
+  font-size: 11px;
+}
