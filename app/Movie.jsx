@@ -3,13 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import StarIcon from "@mui/icons-material/Star";
+import PopularIcon from "./Trend";
 
 export default function Movie({
   title,
   id,
   poster_path,
   media_type,
-  vote_average,
+  popularity,
 }) {
   const imagePath = "https://image.tmdb.org/t/p/original/";
 
@@ -22,8 +23,10 @@ export default function Movie({
         <h1>{title}</h1>
       </Link>
       <div className="flex mb-1 rating">
-        <StarIcon className="star-card mr-1 " />
-        <h2 className="vote">{Math.round(vote_average / 2)}</h2>
+        <span title="Popularity score">
+          <PopularIcon className="star-card mr-5 " />
+        </span>
+        <h2 className="vote">{Math.round(popularity)}</h2>
       </div>
 
       <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>

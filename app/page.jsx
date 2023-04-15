@@ -27,6 +27,7 @@ export default async function Home() {
             poster_path={movie?.poster_path}
             media_type={movie?.media_type}
             vote_average={movie?.vote_average}
+            popularity={movie?.popularity}
           />
         ))}
         {/* <Movie
