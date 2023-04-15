@@ -9,21 +9,17 @@ import NetflixLogo from "../public/logo.png";
 export default function Navbar({}) {
   const pathname = usePathname();
   return (
-    <div className="mt-5 mb-9 flex navbar">
-      <Link className="mr-10" href="/">
-        <Image className="logo" width="100" src={NetflixLogo} />
-      </Link>
-      <ul className="flex">
-        <Link href="/">
-          <li className={pathname == "/" ? "active" : ""}>Home</li>
+    <>
+      <div className="mt-5 mb-10 flex navbar py-1">
+        <Link className="mr-10" href="/">
+          <Image className="logo" width="100" src={NetflixLogo} />
         </Link>
-        <Link href="/about">
-          <li className={pathname == "/about" ? "active" : ""}>About</li>
-        </Link>
-      </ul>
-      <div className="search-container">
-        <input className={pathname == "/" ? "bg-transparent py-1" : "hidden"} />
+
+        <input className={pathname == "/" ? "bg-transparent" : "hidden"} />
       </div>
-    </div>
+      {/* <div className={pathname !== "/" ? "" : "hidden"}>
+        <h1>Back to Home</h1>
+      </div> */}
+    </>
   );
 }
