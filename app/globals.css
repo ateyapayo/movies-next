@@ -150,7 +150,7 @@ input {
   }
 }
 
-@media screen and (max-width: 6©00px) {
+@media screen and (max-width: 600px) {
   input {
     width: 45%;
   }
