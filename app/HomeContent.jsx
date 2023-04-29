@@ -11,11 +11,17 @@ export default function HomeContent({ content }) {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
-    const filteredItems = content.filter((item) =>
-      item?.name?.toLowerCase().includes(searchKeyword?.toLowerCase())
-    );
-    setFilteredResults(filteredItems);
-  }, [searchKeyword]);
+    if (!searchKeyword) {
+      setFilteredResults(content);
+    } else {
+      const filteredItems = content?.filter(
+        (item) =>
+          item?.name?.toLowerCase().includes(searchKeyword?.toLowerCase()) ||
+          item?.title?.toLowerCase().includes(searchKeyword?.toLowerCase())
+      );
+      setFilteredResults(filteredItems);
+    }
+  }, [searchKeyword, content]);
 
   return (
     <main className="mt-8 mb-3">
