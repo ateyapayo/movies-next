@@ -24,9 +24,16 @@ export default function HomeContent({ content }) {
         setterSearchKeyword={setSearchKeyword}
       />
 
-      <div className="grid gap-16 grid-cols-fluid">
+      <div
+        className={
+          filteredResults.length > 3
+            ? "grid gap-16 grid-cols-fluid"
+            : "short-row"
+        }
+      >
         {filteredResults?.map((movie) => (
           <Movie
+            filteredResults={filteredResults}
             key={movie?.id}
             id={movie?.id}
             title={movie?.title || movie?.name}
@@ -36,14 +43,6 @@ export default function HomeContent({ content }) {
             popularity={movie?.popularity}
           />
         ))}
-        {/* <Movie
-        key={results?.id}
-        id={results?.id}
-        title={results?.title || results?.name}
-        poster_path={results?.poster_path}
-        media_type={results?.media_type}
-        vote_average={results?.vote_average}
-      /> */}
       </div>
     </main>
   );

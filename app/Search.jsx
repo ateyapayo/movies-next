@@ -1,19 +1,12 @@
 "use client";
-import { usePathname } from "next/navigation";
 
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 
 export default function Search({ getterSearchKeyword, setterSearchKeyword }) {
-  const pathname = usePathname();
-
   return (
     <div className="search-section">
-      <div
-        className={
-          pathname == "/" ? "bg-transparent search-container" : "hidden"
-        }
-      >
+      <div className="bg-transparent search-container">
         <SearchOutlinedIcon className="search-icon" />
         <input
           value={getterSearchKeyword}

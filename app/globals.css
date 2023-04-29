@@ -205,3 +205,12 @@ footer p {
   display: flex;
   justify-content: end;
 }
+
+.item {
+  max-width: 337px;
+  padding-right: 4em;
+}
+
+.short-row {
+  display: flex;
+}

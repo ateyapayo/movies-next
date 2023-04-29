@@ -11,11 +11,12 @@ export default function Movie({
   poster_path,
   media_type,
   popularity,
+  filteredResults,
 }) {
   const imagePath = "https://image.tmdb.org/t/p/original/";
 
   return (
-    <div>
+    <div className={filteredResults.length <= 3 ? "item" : ""}>
       <p className="inline-block my-2 py-1 px-2 rounded-lg genre">
         {media_type === "tv" ? "TV Show" : "Movie"}
       </p>
@@ -35,7 +36,6 @@ export default function Movie({
           height={800}
           src={imagePath + poster_path}
           alt={title}
-          // className="card-image"
         />
       </Link>
     </div>
