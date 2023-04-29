@@ -86,10 +86,6 @@ p,
   background-color: #e50914;
 }
 
-input {
-  border: 1px solid white;
-}
-
 .popularity {
   flex-direction: column;
   align-self: center;
@@ -132,8 +128,15 @@ input {
 }
 
 input {
-  height: 36px;
-  width: 275px;
+  background-color: transparent;
+  padding: 0.6em;
+  font-size: 13px;
+  width: 100%;
+  color: white;
+}
+
+input:focus {
+  outline: none;
 }
 
 @media screen and (max-width: 500px) {
@@ -150,12 +153,6 @@ input {
   }
 }
 
-@media screen and (max-width: 600px) {
-  input {
-    width: 45%;
-  }
-}
-
 footer {
   margin-top: 5em;
   margin-bottom: 1em;
@@ -168,4 +165,43 @@ footer p {
 
 .ending {
   font-size: 11px;
+}
+
+.search-container {
+  position: absolute;
+  top: 20px;
+  padding: 0 0.2em;
+  display: flex;
+  height: 36.5px;
+  width: 275px;
+  border: 1px solid white;
+}
+
+@media screen and (max-width: 485px) {
+  .search-container {
+    position: relative;
+    top: -19px;
+    width: 100%;
+  }
+
+  .input {
+    width: 100%;
+    border: 2px solid red;
+  }
+}
+
+.search-icon,
+.close-icon {
+  font-size: 25px;
+  align-self: center;
+  color: white;
+}
+
+.close-icon {
+  margin-left: 5px;
+  cursor: pointer;
+}
+.search-section {
+  display: flex;
+  justify-content: end;
 }

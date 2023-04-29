@@ -1,4 +1,4 @@
-import Movie from "./Movie";
+import HomeContent from "./HomeContent";
 
 export default async function Home() {
   const page1Data = await fetch(
@@ -15,30 +15,5 @@ export default async function Home() {
 
   console.log(results);
 
-  return (
-    <main className="mt-8 mb-3">
-      <div className="grid gap-16 grid-cols-fluid">
-        {" "}
-        {results?.map((movie) => (
-          <Movie
-            key={movie?.id}
-            id={movie?.id}
-            title={movie?.title || movie?.name}
-            poster_path={movie?.poster_path}
-            media_type={movie?.media_type}
-            vote_average={movie?.vote_average}
-            popularity={movie?.popularity}
-          />
-        ))}
-        {/* <Movie
-          key={results?.id}
-          id={results?.id}
-          title={results?.title || results?.name}
-          poster_path={results?.poster_path}
-          media_type={results?.media_type}
-          vote_average={results?.vote_average}
-        /> */}
-      </div>
-    </main>
-  );
+  return <HomeContent content={results} />;
 }
