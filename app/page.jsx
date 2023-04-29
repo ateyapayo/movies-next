@@ -16,7 +16,7 @@ export default async function Home() {
   console.log(results);
 
   return (
-    <main className="my-8">
+    <main className="mt-8 mb-3">
       <div className="grid gap-16 grid-cols-fluid">
         {" "}
         {results?.map((movie) => (
