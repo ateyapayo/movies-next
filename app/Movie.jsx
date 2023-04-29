@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import StarIcon from "@mui/icons-material/Star";
 import PopularIcon from "./Trend";
 
 export default function Movie({
@@ -11,12 +10,11 @@ export default function Movie({
   poster_path,
   media_type,
   popularity,
-  filteredResults,
 }) {
   const imagePath = "https://image.tmdb.org/t/p/original/";
 
   return (
-    <div className={filteredResults.length <= 3 ? "item" : ""}>
+    <div>
       <p className="inline-block my-2 py-1 px-2 rounded-lg genre">
         {media_type === "tv" ? "TV Show" : "Movie"}
       </p>

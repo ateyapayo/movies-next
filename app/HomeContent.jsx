@@ -30,13 +30,7 @@ export default function HomeContent({ content }) {
         setterSearchKeyword={setSearchKeyword}
       />
 
-      <div
-        className={
-          filteredResults.length > 3
-            ? "grid gap-16 grid-cols-fluid"
-            : "short-row"
-        }
-      >
+      <div className="grid gap-16 grid-cols-fluid">
         {filteredResults?.map((movie) => (
           <Movie
             filteredResults={filteredResults}
