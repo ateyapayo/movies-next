@@ -215,3 +215,18 @@ footer p {
 .no-results h1 {
   font-size: 11px;
 }
+
+.sort-by:focus {
+  outline: none;
+}
+
+.section-sort {
+  margin-top: -0.5em;
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: end;
+}
+
+.menu-items {
+  background-color: #141414;
+}

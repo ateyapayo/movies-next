@@ -2,6 +2,7 @@
 
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { useState } from "react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -16,6 +17,10 @@ export default function Sorting({
   getterSortAlphabet,
   setterSortAlphabet,
 }) {
+  const [selectedPopularity, setSelectedPopularity] = useState(false);
+  const [selectedVote, setSelectedVote] = useState(false);
+  const [selectedAZ, setSelectedAZ] = useState(false);
+
   const orderByPopularity = () => {
     const sortedResults = [...content].sort((a, b) =>
       getterSortPopularity === "desc"
@@ -26,6 +31,9 @@ export default function Sorting({
     setterSortPopularity(getterSortPopularity === "desc" ? "asc" : "desc");
     setterSortAlphabet("asc");
     setterSortVote("desc");
+    setSelectedPopularity(true);
+    setSelectedVote(false);
+    setSelectedAZ(false);
   };
 
   const orderByVote = () => {
@@ -38,6 +46,9 @@ export default function Sorting({
     setterSortVote(getterSortVote === "desc" ? "asc" : "desc");
     setterSortPopularity("desc");
     setterSortAlphabet("asc");
+    setSelectedPopularity(false);
+    setSelectedVote(true);
+    setSelectedAZ(false);
   };
 
   const orderByAlphabet = () => {
@@ -55,15 +66,29 @@ export default function Sorting({
     setterSortAlphabet(getterSortAlphabet === "desc" ? "asc" : "desc");
     setterSortPopularity("desc");
     setterSortVote("desc");
+    setSelectedPopularity(false);
+    setSelectedVote(false);
+    setSelectedAZ(true);
   };
 
   return (
-    <>
+    <div className="section-sort">
       {content.length > 0 && (
-        <Menu as="div" className="relative inline-block text-left">
+        <Menu as="div" className="relative inline-block text-right">
           <div>
-            <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-              Options
+            <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-transparent border border-white-900">
+              {!selectedVote && !selectedPopularity && !selectedAZ && "Sort by"}
+              {selectedVote && getterSortVote === "asc" ? "Most Liked" : ""}
+              {selectedVote && getterSortVote === "desc" ? "Least Liked" : ""}
+              {selectedPopularity && getterSortPopularity === "desc"
+                ? "Least Popular"
+                : ""}
+              {selectedPopularity && getterSortPopularity === "asc"
+                ? "Most Popular"
+                : ""}
+              {selectedAZ && getterSortAlphabet === "desc" ? "A-Z" : ""}
+              {getterSortAlphabet === "asc" && selectedAZ ? "Z-A" : ""}
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-5 h-5 ml-2 -mr-1"
@@ -90,18 +115,22 @@ export default function Sorting({
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Menu.Items className="menu-items absolute right-0 w-44 mt-2 origin-top-right shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-white-800">
               <div className="py-1">
                 <Menu.Item onClick={orderByPopularity}>
                   {({ active }) => (
                     <a
                       href="#"
                       className={classNames(
-                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        active
+                          ? "bg-black text-white text-sm"
+                          : "text-gray-300",
                         "block px-4 py-2 text-sm"
                       )}
                     >
-                      Popularity
+                      {getterSortPopularity === "asc"
+                        ? "Least Popular"
+                        : "Most Popular"}
                     </a>
                   )}
                 </Menu.Item>
@@ -110,11 +139,13 @@ export default function Sorting({
                     <a
                       href="#"
                       className={classNames(
-                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        active
+                          ? "bg-black text-white text-sm"
+                          : "text-gray-300",
                         "block px-4 py-2 text-sm"
                       )}
                     >
-                      Vote
+                      {getterSortVote === "asc" ? "Least Liked" : "Most Liked"}
                     </a>
                   )}
                 </Menu.Item>
@@ -123,11 +154,15 @@ export default function Sorting({
                     <a
                       href="#"
                       className={classNames(
-                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        active
+                          ? "bg-black text-white text-sm"
+                          : "text-gray-300",
                         "block px-4 py-2 text-sm"
                       )}
                     >
-                      A-Z
+                      {!selectedAZ && "A-Z"}
+                      {selectedAZ && getterSortAlphabet === "asc" ? "A-Z" : ""}
+                      {getterSortAlphabet === "desc" && selectedAZ ? "Z-A" : ""}
                     </a>
                   )}
                 </Menu.Item>
@@ -136,6 +171,6 @@ export default function Sorting({
           </Transition>
         </Menu>
       )}
-    </>
+    </div>
   );
 }

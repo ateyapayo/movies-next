@@ -11,6 +11,9 @@ export default function HomeContent({ content }) {
   const [sortPopularity, setSortPopularity] = useState("desc");
   const [sortVote, setSortVote] = useState("desc");
   const [sortAlphabet, setSortAlphabet] = useState("asc");
+  const [selectedPopularity, setSelectedPopularity] = useState(false);
+  const [selectedVote, setSelectedVote] = useState(false);
+  const [selectedAZ, setSelectedAZ] = useState(false);
 
   useEffect(() => {
     const filteredItems = content?.filter(
@@ -22,7 +25,12 @@ export default function HomeContent({ content }) {
   }, [searchKeyword, content]);
 
   return (
-    <main className="mt-8">
+    <main>
+      <Search
+        getterSearchKeyword={searchKeyword}
+        setterSearchKeyword={setSearchKeyword}
+      />
+
       <Sorting
         setContent={setFilteredResults}
         content={filteredResults}
@@ -32,10 +40,6 @@ export default function HomeContent({ content }) {
         setterSortVote={setSortVote}
         getterSortAlphabet={sortAlphabet}
         setterSortAlphabet={setSortAlphabet}
-      />
-      <Search
-        getterSearchKeyword={searchKeyword}
-        setterSearchKeyword={setSearchKeyword}
       />
 
       <div className="grid gap-16 grid-cols-fluid">
