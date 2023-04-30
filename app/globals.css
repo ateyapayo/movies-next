@@ -205,3 +205,13 @@ footer p {
   display: flex;
   justify-content: end;
 }
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  margin: 6em 0 50em 0;
+}
+
+.no-results h1 {
+  font-size: 11px;
+}

@@ -11,16 +11,12 @@ export default function HomeContent({ content }) {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
-    if (!searchKeyword) {
-      setFilteredResults(content);
-    } else {
-      const filteredItems = content?.filter(
-        (item) =>
-          item?.name?.toLowerCase().includes(searchKeyword?.toLowerCase()) ||
-          item?.title?.toLowerCase().includes(searchKeyword?.toLowerCase())
-      );
-      setFilteredResults(filteredItems);
-    }
+    const filteredItems = content?.filter(
+      (item) =>
+        item?.name?.toLowerCase().includes(searchKeyword?.toLowerCase()) ||
+        item?.title?.toLowerCase().includes(searchKeyword?.toLowerCase())
+    );
+    setFilteredResults(filteredItems);
   }, [searchKeyword, content]);
 
   return (
@@ -44,6 +40,15 @@ export default function HomeContent({ content }) {
           />
         ))}
       </div>
+      {filteredResults.length === 0 && (
+        <div className="no-results">
+          <h1>
+            Your search for "{searchKeyword}" did not have any matches.
+            <br />
+            Try with a different title.
+          </h1>
+        </div>
+      )}
     </main>
   );
 }

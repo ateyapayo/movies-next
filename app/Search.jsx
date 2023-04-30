@@ -11,6 +11,7 @@ export default function Search({ getterSearchKeyword, setterSearchKeyword }) {
         <input
           value={getterSearchKeyword}
           onChange={(e) => setterSearchKeyword(e.target.value)}
+          placeholder="Title"
         />
         {getterSearchKeyword.length > 0 && (
           <CloseSharpIcon
