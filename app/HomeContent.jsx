@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Movie from "./Movie";
-
 import Search from "./Search";
+import Sorting from "./Sorting";
 
 export default function HomeContent({ content }) {
   const [filteredResults, setFilteredResults] = useState(content);
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [sortPopularity, setSortPopularity] = useState("desc");
+  const [sortVote, setSortVote] = useState("desc");
 
   useEffect(() => {
     const filteredItems = content?.filter(
@@ -20,7 +21,15 @@ export default function HomeContent({ content }) {
   }, [searchKeyword, content]);
 
   return (
-    <main className="mt-8 mb-3">
+    <main className="mt-8">
+      <Sorting
+        setContent={setFilteredResults}
+        content={filteredResults}
+        getterSortPopularity={sortPopularity}
+        setterSortPopularity={setSortPopularity}
+        getterSortVote={sortVote}
+        setterSortVote={setSortVote}
+      />
       <Search
         getterSearchKeyword={searchKeyword}
         setterSearchKeyword={setSearchKeyword}
