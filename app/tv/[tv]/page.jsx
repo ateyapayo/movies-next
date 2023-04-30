@@ -44,8 +44,14 @@ export default async function MovieDetail({ params }) {
         <h2>Episodes length: {res?.last_episode_to_air?.runtime} minutes</h2>
         <div className="flex justify-between badges mt-2">
           <div className="status">
-            <h2 className="bg-blue-600 inline-block py-2 px-4 rounded-lg text-sm ">
-              {res.status}
+            <h2
+              className={`inline-block py-2 px-4 rounded-lg text-sm ${
+                res?.status === "Returning Series" && "bg-green-600"
+              } ${res?.status === "Ended" && "bg-blue-700"} ${
+                res?.status === "Canceled" && "bg-red-700"
+              }`}
+            >
+              {res?.status}
             </h2>
           </div>
           <div className="popularity flex">
