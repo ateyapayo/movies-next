@@ -10,6 +10,7 @@ export default function HomeContent({ content }) {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [sortPopularity, setSortPopularity] = useState("desc");
   const [sortVote, setSortVote] = useState("desc");
+  const [sortAlphabet, setSortAlphabet] = useState("asc");
 
   useEffect(() => {
     const filteredItems = content?.filter(
@@ -29,6 +30,8 @@ export default function HomeContent({ content }) {
         setterSortPopularity={setSortPopularity}
         getterSortVote={sortVote}
         setterSortVote={setSortVote}
+        getterSortAlphabet={sortAlphabet}
+        setterSortAlphabet={setSortAlphabet}
       />
       <Search
         getterSearchKeyword={searchKeyword}
