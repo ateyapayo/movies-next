@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 

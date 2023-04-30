@@ -11,9 +11,6 @@ export default function HomeContent({ content }) {
   const [sortPopularity, setSortPopularity] = useState("desc");
   const [sortVote, setSortVote] = useState("desc");
   const [sortAlphabet, setSortAlphabet] = useState("asc");
-  const [selectedPopularity, setSelectedPopularity] = useState(false);
-  const [selectedVote, setSelectedVote] = useState(false);
-  const [selectedAZ, setSelectedAZ] = useState(false);
 
   useEffect(() => {
     const filteredItems = content?.filter(
@@ -25,7 +22,7 @@ export default function HomeContent({ content }) {
   }, [searchKeyword, content]);
 
   return (
-    <main>
+    <main className="container">
       <Search
         getterSearchKeyword={searchKeyword}
         setterSearchKeyword={setSearchKeyword}
@@ -61,7 +58,11 @@ export default function HomeContent({ content }) {
           <h1>
             Your search for "{searchKeyword}" did not have any matches.
             <br />
-            Try with a different title.
+            Try with a different title or{" "}
+            <a className="back-to-home" onClick={() => setSearchKeyword("")}>
+              empty your search
+            </a>
+            .
           </h1>
         </div>
       )}

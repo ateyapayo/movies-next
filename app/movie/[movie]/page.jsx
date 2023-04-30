@@ -36,8 +36,8 @@ export default async function MovieDetail({ params }) {
   }
 
   return (
-    <div className="mt-8">
-      <div>
+    <div className="mt-8 container">
+      <div className="container-detail">
         <h2 className="text-4xl">{res?.title}</h2>
         <h1 className="text-lg">Movie</h1>
         <h1 className="text-lg ">{res?.release_date}</h1>

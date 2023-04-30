@@ -5,16 +5,41 @@
 body {
   margin: 0 auto;
   background-color: #141414;
+}
+
+.container {
+  margin: 0 auto;
   width: 85%;
 }
 
-.navbar {
-  height: 36px;
-  justify-content: space-between;
-  align-items: center;
+.container {
+  margin: 0 auto;
 }
 
+.container-detail {
+  padding-top: 6em;
+}
+
+.navbar {
+  margin: 0 auto;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: rgb(20, 20, 20);
+  z-index: 99;
+}
+.navbar-container {
+  align-self: center;
+}
+
+.link-logo {
+  display: flex;
+  align-self: center;
+}
 .logo {
+  align-self: center;
   min-width: 95px;
 }
 
@@ -169,8 +194,10 @@ footer p {
 
 .search-container {
   position: absolute;
-  top: 20px;
+  top: 16.5px;
   padding: 0 0.2em;
+  position: fixed;
+  z-index: 999;
   display: flex;
   height: 36.5px;
   width: 275px;
@@ -209,7 +236,7 @@ footer p {
 .no-results {
   display: flex;
   justify-content: center;
-  margin: 6em 0 50em 0;
+  margin: 6em 0 26em 0;
 }
 
 .no-results h1 {
@@ -221,7 +248,7 @@ footer p {
 }
 
 .section-sort {
-  margin-top: -0.5em;
+  margin-top: 4.7em;
   margin-bottom: 2em;
   display: flex;
   justify-content: end;
@@ -229,4 +256,13 @@ footer p {
 
 .menu-items {
   background-color: #141414;
+}
+
+.link-search {
+  width: 100%;
+}
+
+.back-to-home {
+  text-decoration: underline;
+  cursor: pointer;
 }
