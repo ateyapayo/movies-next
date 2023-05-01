@@ -13,7 +13,10 @@ export default function Search({}) {
         <SearchOutlinedIcon className="search-icon" />
         <input
           value={context?.keyword?.getter}
-          onChange={(e) => context?.keyword?.setter(e.target.value)}
+          onChange={(e) => {
+            context?.filters?.noSorting();
+            context?.keyword?.setter(e.target.value);
+          }}
           placeholder="Title"
         />
         {context?.keyword?.getter?.length > 0 && (

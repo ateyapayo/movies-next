@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 import { useSearchContext } from "@/context/SearchContext";

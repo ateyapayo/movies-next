@@ -21,6 +21,15 @@ export let SearchWrapper = ({ children }) => {
     setSelectedAZ("");
   };
 
+  const resetSorting = () => {
+    setSortPopularity("");
+    setSortVote("");
+    setSortAlphabet("");
+    setSelectedPopularity("");
+    setSelectedVote("");
+    setSelectedAZ("");
+  };
+
   const sharedFilters = {
     keyword: {
       getter: searchedWord,
@@ -52,6 +61,7 @@ export let SearchWrapper = ({ children }) => {
     },
     filters: {
       clear: resetAllFilters,
+      noSorting: resetSorting,
     },
   };
 
