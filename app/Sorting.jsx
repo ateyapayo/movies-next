@@ -1,54 +1,59 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { useState } from "react";
+
+import { useSearchContext } from "@/context/SearchContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-export default function Sorting({
-  content,
-  setContent,
-  getterSortPopularity,
-  setterSortPopularity,
-  getterSortVote,
-  setterSortVote,
-  getterSortAlphabet,
-  setterSortAlphabet,
-}) {
-  const [selectedPopularity, setSelectedPopularity] = useState(false);
-  const [selectedVote, setSelectedVote] = useState(false);
-  const [selectedAZ, setSelectedAZ] = useState(false);
+export default function Sorting({ content, setContent }) {
+  const context = useSearchContext();
+
+  const gettingPopularity = context?.popularity?.getter;
+  const settingPopularity = context?.popularity?.setter;
+  const gettingAlphabet = context?.alphabet?.getter;
+  const settingAlphabet = context?.alphabet?.setter;
+  const gettingVote = context?.vote?.getter;
+  const settingVote = context?.vote?.setter;
+
+  const selectedPopularity = context?.selectPopularity?.getter;
+  const selectingPopularity = context?.selectPopularity?.setter;
+  const selectedVote = context?.selectVote?.getter;
+  const selectingVote = context?.selectVote?.setter;
+  const selectedAlphabet = context?.selectAlphabet?.getter;
+
+  const selectingAlphabet = context?.selectAlphabet?.setter;
 
   const orderByPopularity = () => {
     const sortedResults = [...content].sort((a, b) =>
-      getterSortPopularity === "desc"
+      gettingPopularity === "desc"
         ? b.popularity - a.popularity
         : a.popularity - b.popularity
     );
     setContent(sortedResults);
-    setterSortPopularity(getterSortPopularity === "desc" ? "asc" : "desc");
-    setterSortAlphabet("asc");
-    setterSortVote("desc");
-    setSelectedPopularity(true);
-    setSelectedVote(false);
-    setSelectedAZ(false);
+    settingPopularity(gettingPopularity === "desc" ? "asc" : "desc");
+    settingAlphabet("asc");
+    settingVote("desc");
+    selectingPopularity(true);
+    selectingVote(false);
+    selectingAlphabet(false);
   };
 
   const orderByVote = () => {
     const sortedResults = [...content].sort((a, b) =>
-      getterSortVote === "desc"
+      gettingVote === "desc"
         ? b.vote_average - a.vote_average
         : a.vote_average - b.vote_average
     );
     setContent(sortedResults);
-    setterSortVote(getterSortVote === "desc" ? "asc" : "desc");
-    setterSortPopularity("desc");
-    setterSortAlphabet("asc");
-    setSelectedPopularity(false);
-    setSelectedVote(true);
-    setSelectedAZ(false);
+    settingVote(gettingVote === "desc" ? "asc" : "desc");
+    settingPopularity("desc");
+    settingAlphabet("asc");
+    selectingPopularity(false);
+    selectingVote(true);
+    selectingAlphabet(false);
   };
 
   const orderByAlphabet = () => {
@@ -56,19 +61,19 @@ export default function Sorting({
       const titleA = a.title || a.name;
       const titleB = b.title || b.name;
 
-      if (getterSortAlphabet === "desc") {
+      if (gettingAlphabet === "desc") {
         return titleB.localeCompare(titleA);
       } else {
         return titleA.localeCompare(titleB);
       }
     });
     setContent(sortedResults);
-    setterSortAlphabet(getterSortAlphabet === "desc" ? "asc" : "desc");
-    setterSortPopularity("desc");
-    setterSortVote("desc");
-    setSelectedPopularity(false);
-    setSelectedVote(false);
-    setSelectedAZ(true);
+    settingAlphabet(gettingAlphabet === "desc" ? "asc" : "desc");
+    settingPopularity("desc");
+    settingVote("desc");
+    selectingPopularity(false);
+    selectingVote(false);
+    selectingAlphabet(true);
   };
 
   return (
@@ -77,17 +82,20 @@ export default function Sorting({
         <Menu as="div" className="relative inline-block text-right">
           <div>
             <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-transparent border border-white-900">
-              {!selectedVote && !selectedPopularity && !selectedAZ && "Sort by"}
-              {selectedVote && getterSortVote === "asc" ? "Most Liked" : ""}
-              {selectedVote && getterSortVote === "desc" ? "Least Liked" : ""}
-              {selectedPopularity && getterSortPopularity === "desc"
+              {!selectedVote &&
+                !selectedPopularity &&
+                !selectedAlphabet &&
+                "Sort by"}
+              {selectedVote && gettingVote === "asc" ? "Most Liked" : ""}
+              {selectedVote && gettingVote === "desc" ? "Least Liked" : ""}
+              {selectedPopularity && gettingPopularity === "desc"
                 ? "Least Popular"
                 : ""}
-              {selectedPopularity && getterSortPopularity === "asc"
+              {selectedPopularity && gettingPopularity === "asc"
                 ? "Most Popular"
                 : ""}
-              {selectedAZ && getterSortAlphabet === "desc" ? "A-Z" : ""}
-              {getterSortAlphabet === "asc" && selectedAZ ? "Z-A" : ""}
+              {selectedAlphabet && gettingAlphabet === "desc" ? "A-Z" : ""}
+              {gettingAlphabet === "asc" && selectedAlphabet ? "Z-A" : ""}
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +135,7 @@ export default function Sorting({
                         "block px-4 py-2 text-sm"
                       )}
                     >
-                      {getterSortPopularity === "asc"
+                      {gettingPopularity === "asc"
                         ? "Least Popular"
                         : "Most Popular"}
                     </a>
@@ -143,7 +151,7 @@ export default function Sorting({
                         "block px-4 py-2 text-sm"
                       )}
                     >
-                      {getterSortVote === "asc" ? "Least Liked" : "Most Liked"}
+                      {gettingVote === "asc" ? "Least Liked" : "Most Liked"}
                     </a>
                   )}
                 </Menu.Item>
@@ -157,9 +165,13 @@ export default function Sorting({
                         "block px-4 py-2 text-sm"
                       )}
                     >
-                      {!selectedAZ && "A-Z"}
-                      {selectedAZ && getterSortAlphabet === "asc" ? "A-Z" : ""}
-                      {getterSortAlphabet === "desc" && selectedAZ ? "Z-A" : ""}
+                      {!selectedAlphabet && "A-Z"}
+                      {selectedAlphabet && gettingAlphabet === "asc"
+                        ? "A-Z"
+                        : ""}
+                      {gettingAlphabet === "desc" && selectedAlphabet
+                        ? "Z-A"
+                        : ""}
                     </a>
                   )}
                 </Menu.Item>

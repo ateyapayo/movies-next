@@ -11,6 +11,7 @@ import Search from "./Search";
 
 export default function Navbar({}) {
   const context = useSearchContext();
+  const reset = context?.filters?.clear;
   const pathname = usePathname();
 
   const scrollToTop = () => {
@@ -24,7 +25,7 @@ export default function Navbar({}) {
         <div className="container navbar-container">
           <Link className="link-logo mr-10" href="/" onClick={scrollToTop}>
             <Image
-              onClick={() => context?.keyword?.setter("")}
+              onClick={reset}
               className="logo"
               width="100"
               src={NetflixLogo}

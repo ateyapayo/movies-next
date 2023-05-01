@@ -6,7 +6,7 @@ import { useSearchContext } from "@/context/SearchContext";
 
 export default function Search({}) {
   const context = useSearchContext();
-  console.log("THIS IS CONTEXT IN SEARCH ---> ", context?.keyword);
+
   return (
     <div className="search-section">
       <div className="bg-transparent search-container">

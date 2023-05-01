@@ -6,12 +6,9 @@ import Sorting from "./Sorting";
 import { useSearchContext } from "@/context/SearchContext";
 
 export default function HomeContent({ content }) {
-  const [filteredResults, setFilteredResults] = useState(content);
-  const [sortPopularity, setSortPopularity] = useState("desc");
-  const [sortVote, setSortVote] = useState("desc");
-  const [sortAlphabet, setSortAlphabet] = useState("asc");
-
   const context = useSearchContext();
+
+  const [filteredResults, setFilteredResults] = useState(content);
 
   const searchedWord = context?.keyword?.getter;
 
@@ -24,18 +21,19 @@ export default function HomeContent({ content }) {
     setFilteredResults(filteredItems);
   }, [searchedWord, content]);
 
+  useEffect(() => {
+    if (
+      context?.alphabet?.getter == "" &&
+      context?.popularity?.getter == "" &&
+      context?.vote?.getter == ""
+    ) {
+      setFilteredResults(content);
+    }
+  });
+
   return (
     <main className="container">
-      <Sorting
-        setContent={setFilteredResults}
-        content={filteredResults}
-        getterSortPopularity={sortPopularity}
-        setterSortPopularity={setSortPopularity}
-        getterSortVote={sortVote}
-        setterSortVote={setSortVote}
-        getterSortAlphabet={sortAlphabet}
-        setterSortAlphabet={setSortAlphabet}
-      />
+      <Sorting setContent={setFilteredResults} content={filteredResults} />
 
       <div className="grid gap-16 grid-cols-fluid">
         {filteredResults?.map((movie) => (
