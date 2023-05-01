@@ -320,6 +320,10 @@ footer p {
   font-weight: 900;
 }
 
+.text-404 button:hover {
+  opacity: 0.8;
+}
+
 .link-go-home {
   margin-top: 2em;
   display: flex;
