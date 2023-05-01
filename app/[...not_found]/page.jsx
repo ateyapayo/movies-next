@@ -15,11 +15,6 @@ export default function Custom404() {
         <Link className="link-go-home" href="/">
           <button>NextFlix Home</button>
         </Link>
-
-        <div className="bottom-404">
-          <span className="bottom-from">FROM</span>
-          <span className="bottom-movie">INTO THE WILD</span>
-        </div>
       </div>
     </div>
   );

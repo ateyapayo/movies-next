@@ -352,3 +352,23 @@ footer p {
   margin-left: 0.5em;
   color: rgba(255, 255, 255, 0.669);
 }
+
+@media screen and (max-width: 375px) {
+  .text-404 h2 {
+    font-size: 1.4em;
+  }
+
+  .text-404 h3 {
+    font-size: 0.7em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .text-404 h2 {
+    font-size: 1.4em;
+  }
+
+  .text-404 h3 {
+    font-size: 0.8em;
+  }
+}
