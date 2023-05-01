@@ -10,7 +10,7 @@ import Footer from "./Footer";
 import { SearchWrapper } from "@/context/SearchContext";
 
 const montserrat = Montserrat({
-  weight: ["300", "400", "500", "700"],
+  weight: ["400", "600", "700", "900"],
   subsets: ["latin"],
   variable: "--font-montserrat",
 });
