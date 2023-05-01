@@ -1,3 +1,5 @@
+"use client";
+
 import "./globals.css";
 
 import { Montserrat } from "@next/font/google";
@@ -5,8 +7,10 @@ import Navbar from "./Navbar";
 import Head from "./head";
 import Footer from "./Footer";
 
+import { SearchWrapper } from "@/context/SearchContext";
+
 const montserrat = Montserrat({
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-montserrat",
 });
@@ -22,9 +26,11 @@ export default function RootLayout({ children }) {
 
       <body className={`${montserrat.className}`}>
         {" "}
-        <Navbar />
-        {children}
-        <Footer />
+        <SearchWrapper>
+          <Navbar />
+          {children}
+          <Footer />
+        </SearchWrapper>
       </body>
     </html>
   );

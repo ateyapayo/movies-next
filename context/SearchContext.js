@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 let SearchContext = createContext();
 
-export let SearchWrapper = () => {
+export let SearchWrapper = ({ children }) => {
   const [searchedWord, setSearchedWord] = useState("");
 
   const sharedFilters = {

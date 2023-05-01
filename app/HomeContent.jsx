@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Movie from "./Movie";
 import Search from "./Search";
 import Sorting from "./Sorting";
+import { useSearchContext } from "@/context/SearchContext";
 
 export default function HomeContent({ content }) {
   const [filteredResults, setFilteredResults] = useState(content);
@@ -12,21 +13,22 @@ export default function HomeContent({ content }) {
   const [sortVote, setSortVote] = useState("desc");
   const [sortAlphabet, setSortAlphabet] = useState("asc");
 
+  const context = useSearchContext();
+
+  const searchedWord = context?.keyword?.getter;
+
   useEffect(() => {
     const filteredItems = content?.filter(
       (item) =>
-        item?.name?.toLowerCase().includes(searchKeyword?.toLowerCase()) ||
-        item?.title?.toLowerCase().includes(searchKeyword?.toLowerCase())
+        item?.name?.toLowerCase().includes(searchedWord.toLowerCase()) ||
+        item?.title?.toLowerCase().includes(searchedWord.toLowerCase())
     );
     setFilteredResults(filteredItems);
-  }, [searchKeyword, content]);
+  }, [searchedWord, content]);
 
   return (
     <main className="container">
-      <Search
-        getterSearchKeyword={searchKeyword}
-        setterSearchKeyword={setSearchKeyword}
-      />
+      <Search />
 
       <Sorting
         setContent={setFilteredResults}
@@ -56,13 +58,9 @@ export default function HomeContent({ content }) {
       {filteredResults.length === 0 && (
         <div className="no-results">
           <h1>
-            Your search for "{searchKeyword}" did not have any matches.
+            Your search for "{searchedWord}" did not have any matches.
             <br />
-            Try with a different title or{" "}
-            <a className="back-to-home" onClick={() => setSearchKeyword("")}>
-              empty your search
-            </a>
-            .
+            Try with a different title.
           </h1>
         </div>
       )}
