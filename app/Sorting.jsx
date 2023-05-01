@@ -117,10 +117,9 @@ export default function Sorting({
           >
             <Menu.Items className="menu-items absolute right-0 w-44 mt-2 origin-top-right shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-white-800">
               <div className="py-1">
-                <Menu.Item onClick={orderByPopularity}>
+                <Menu.Item className="pointer" onClick={orderByPopularity}>
                   {({ active }) => (
                     <a
-                      href="#"
                       className={classNames(
                         active
                           ? "bg-black text-white text-sm"
@@ -134,10 +133,9 @@ export default function Sorting({
                     </a>
                   )}
                 </Menu.Item>
-                <Menu.Item onClick={orderByVote}>
+                <Menu.Item className="pointer" onClick={orderByVote}>
                   {({ active }) => (
                     <a
-                      href="#"
                       className={classNames(
                         active
                           ? "bg-black text-white text-sm"
@@ -149,10 +147,9 @@ export default function Sorting({
                     </a>
                   )}
                 </Menu.Item>
-                <Menu.Item onClick={orderByAlphabet}>
+                <Menu.Item className="pointer" onClick={orderByAlphabet}>
                   {({ active }) => (
                     <a
-                      href="#"
                       className={classNames(
                         active
                           ? "bg-black text-white text-sm"

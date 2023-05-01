@@ -4,8 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 import NetflixLogo from "../public/logo.png";
-
+import { useSearchContext } from "../context/SearchContext";
 export default function Navbar({}) {
+  const context = useSearchContext();
+
+  console.log("THIS IS CONTEXT ---> ", context);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
