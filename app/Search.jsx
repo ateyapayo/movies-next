@@ -4,7 +4,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 import { useSearchContext } from "@/context/SearchContext";
 
-export default function Search({ getterSearchKeyword }) {
+export default function Search({}) {
   const context = useSearchContext();
   console.log("THIS IS CONTEXT IN SEARCH ---> ", context?.keyword);
   return (

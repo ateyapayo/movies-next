@@ -2,13 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Movie from "./Movie";
-import Search from "./Search";
 import Sorting from "./Sorting";
 import { useSearchContext } from "@/context/SearchContext";
 
 export default function HomeContent({ content }) {
   const [filteredResults, setFilteredResults] = useState(content);
-  const [searchKeyword, setSearchKeyword] = useState("");
   const [sortPopularity, setSortPopularity] = useState("desc");
   const [sortVote, setSortVote] = useState("desc");
   const [sortAlphabet, setSortAlphabet] = useState("asc");
@@ -28,8 +26,6 @@ export default function HomeContent({ content }) {
 
   return (
     <main className="container">
-      <Search />
-
       <Sorting
         setContent={setFilteredResults}
         content={filteredResults}

@@ -21,6 +21,7 @@ body {
 }
 
 .navbar {
+  padding-top: 0;
   margin: 0 auto;
   height: 70px;
   justify-content: space-between;
@@ -31,6 +32,8 @@ body {
   z-index: 99;
 }
 .navbar-container {
+  display: flex;
+  justify-content: space-between;
   align-self: center;
 }
 
@@ -193,11 +196,7 @@ footer p {
 }
 
 .search-container {
-  position: absolute;
-  top: 16.5px;
   padding: 0 0.2em;
-  position: fixed;
-  z-index: 999;
   display: flex;
   height: 36.5px;
   width: 275px;
@@ -213,7 +212,6 @@ footer p {
 
   .input {
     width: 100%;
-    border: 2px solid red;
   }
 }
 
@@ -227,10 +225,6 @@ footer p {
 .close-icon {
   margin-left: 5px;
   cursor: pointer;
-}
-.search-section {
-  display: flex;
-  justify-content: end;
 }
 
 .no-results {
@@ -248,7 +242,7 @@ footer p {
 }
 
 .section-sort {
-  margin-top: 4.7em;
+  padding-top: 4.7em;
   margin-bottom: 2em;
   display: flex;
   justify-content: end;
@@ -290,7 +284,7 @@ footer p {
 
 .text-404 {
   margin: 0 auto;
-  width: 90%;
+  width: 85%;
   display: flex;
   flex-direction: column;
   justify-content: center;

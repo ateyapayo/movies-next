@@ -2,12 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 import NetflixLogo from "../public/logo.png";
 import { useSearchContext } from "../context/SearchContext";
 
+import Search from "./Search";
+
 export default function Navbar({}) {
   const context = useSearchContext();
+  const pathname = usePathname();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -26,6 +30,7 @@ export default function Navbar({}) {
               src={NetflixLogo}
             />
           </Link>
+          {pathname == "/" && <Search />}
         </div>
       </div>
     </>
