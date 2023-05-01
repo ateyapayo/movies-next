@@ -25,7 +25,8 @@ export default function HomeContent({ content }) {
     if (
       context?.alphabet?.getter == "" &&
       context?.popularity?.getter == "" &&
-      context?.vote?.getter == ""
+      context?.vote?.getter == "" &&
+      searchedWord == ""
     ) {
       setFilteredResults(content);
     }
