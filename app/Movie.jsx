@@ -29,12 +29,15 @@ export default function Movie({
       </div>
 
       <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
-        <Image
-          width={800}
-          height={800}
-          src={imagePath + poster_path}
-          alt={title}
-        />
+        <div className="div-card">
+          <Image
+            className="img-card"
+            width={800}
+            height={800}
+            src={imagePath + poster_path}
+            alt={title}
+          />
+        </div>
       </Link>
     </div>
   );

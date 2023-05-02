@@ -374,3 +374,14 @@ footer p {
 .pointer {
   cursor: pointer;
 }
+
+.div-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-card:hover {
+  opacity: 0.8;
+  transition: 1.5s;
+  transform: scale(1.15);
+}
