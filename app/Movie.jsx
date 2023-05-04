@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import PopularIcon from "./Trend";
+import { useEffect, useState } from "react";
 
 export default function Movie({
   title,
@@ -10,8 +11,19 @@ export default function Movie({
   poster_path,
   media_type,
   popularity,
+  filteredResults,
 }) {
+  const [zoom, setZoom] = useState(false);
+
   const imagePath = "https://image.tmdb.org/t/p/original/";
+
+  useEffect(() => {
+    if (filteredResults?.length > 3) {
+      setZoom(true);
+    } else {
+      setZoom(false);
+    }
+  }, [filteredResults]);
 
   return (
     <div>
@@ -29,14 +41,25 @@ export default function Movie({
       </div>
 
       <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
-        <div className="div-card">
-          <Image
-            className="img-card"
-            width={800}
-            height={800}
-            src={imagePath + poster_path}
-            alt={title}
-          />
+        <div>
+          <div className={`${zoom ? "div-card" : ""} lg-screen-card`}>
+            <Image
+              className={`${zoom ? "img-card" : ""}`}
+              width={800}
+              height={800}
+              src={imagePath + poster_path}
+              alt={title}
+            />
+          </div>
+
+          <div className="sm-screen-card">
+            <Image
+              width={800}
+              height={800}
+              src={imagePath + poster_path}
+              alt={title}
+            />
+          </div>
         </div>
       </Link>
     </div>

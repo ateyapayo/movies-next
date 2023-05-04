@@ -32,6 +32,8 @@ export default function HomeContent({ content }) {
     }
   });
 
+  
+
   return (
     <main className="container">
       <Sorting setContent={setFilteredResults} content={filteredResults} />
