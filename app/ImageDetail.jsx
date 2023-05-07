@@ -13,7 +13,7 @@ export default function ImageDetail({ imagePath, backdropPath, title }) {
   };
   return (
     <>
-      {loading && <Loader />}
+      {loading && <Loader customSize={50} />}
       <Image
         className="my-10 w-full"
         src={imagePath + backdropPath}

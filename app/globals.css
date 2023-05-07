@@ -458,3 +458,7 @@ footer p {
   color: rgba(255, 255, 255, 0.576);
   text-shadow: 1px 1px rgba(0, 0, 0, 0.57);
 }
+
+.loader-div {
+  padding: 5em 0;
+}
