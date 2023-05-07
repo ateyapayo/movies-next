@@ -15,13 +15,13 @@ export default function Sorting({ content, setContent }) {
   const settingPopularity = context?.popularity?.setter;
   const gettingAlphabet = context?.alphabet?.getter;
   const settingAlphabet = context?.alphabet?.setter;
-  const gettingVote = context?.vote?.getter;
-  const settingVote = context?.vote?.setter;
+  const gettingDate = context?.date?.getter;
+  const settingDate = context?.date?.setter;
 
   const selectedPopularity = context?.selectPopularity?.getter;
   const selectingPopularity = context?.selectPopularity?.setter;
-  const selectedVote = context?.selectVote?.getter;
-  const selectingVote = context?.selectVote?.setter;
+  const selectedDate = context?.selectDate?.getter;
+  const selectingDate = context?.selectDate?.setter;
   const selectedAlphabet = context?.selectAlphabet?.getter;
 
   const selectingAlphabet = context?.selectAlphabet?.setter;
@@ -35,24 +35,29 @@ export default function Sorting({ content, setContent }) {
     setContent(sortedResults);
     settingPopularity(gettingPopularity === "desc" ? "asc" : "desc");
     settingAlphabet("asc");
-    settingVote("desc");
+    settingDate("desc");
     selectingPopularity(true);
-    selectingVote(false);
+    selectingDate(false);
     selectingAlphabet(false);
   };
 
-  const orderByVote = () => {
-    const sortedResults = [...content].sort((a, b) =>
-      gettingVote === "desc"
-        ? b.vote_average - a.vote_average
-        : a.vote_average - b.vote_average
-    );
+  const orderByDate = () => {
+    const sortedResults = [...content].sort((a, b) => {
+      const dateA = a.first_air_date || a.release_date;
+      const dateB = b.first_air_date || b.release_date;
+
+      if (gettingDate === "desc") {
+        return dateB.localeCompare(dateA);
+      } else {
+        return dateA.localeCompare(dateB);
+      }
+    });
     setContent(sortedResults);
-    settingVote(gettingVote === "desc" ? "asc" : "desc");
+    settingDate(gettingDate === "desc" ? "asc" : "desc");
     settingPopularity("desc");
     settingAlphabet("asc");
     selectingPopularity(false);
-    selectingVote(true);
+    selectingDate(true);
     selectingAlphabet(false);
   };
 
@@ -70,9 +75,9 @@ export default function Sorting({ content, setContent }) {
     setContent(sortedResults);
     settingAlphabet(gettingAlphabet === "desc" ? "asc" : "desc");
     settingPopularity("desc");
-    settingVote("desc");
+    settingDate("desc");
     selectingPopularity(false);
-    selectingVote(false);
+    selectingDate(false);
     selectingAlphabet(true);
   };
 
@@ -82,12 +87,12 @@ export default function Sorting({ content, setContent }) {
         <Menu as="div" className="relative inline-block text-right">
           <div>
             <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-transparent border border-white-900">
-              {!selectedVote &&
+              {!selectedDate &&
                 !selectedPopularity &&
                 !selectedAlphabet &&
                 "Sort by"}
-              {selectedVote && gettingVote === "asc" ? "Most Liked" : ""}
-              {selectedVote && gettingVote === "desc" ? "Least Liked" : ""}
+              {selectedDate && gettingDate === "asc" ? "Most Recent" : ""}
+              {selectedDate && gettingDate === "desc" ? "Least Recent" : ""}
               {selectedPopularity && gettingPopularity === "desc"
                 ? "Least Popular"
                 : ""}
@@ -141,7 +146,7 @@ export default function Sorting({ content, setContent }) {
                     </a>
                   )}
                 </Menu.Item>
-                <Menu.Item className="pointer" onClick={orderByVote}>
+                <Menu.Item className="pointer" onClick={orderByDate}>
                   {({ active }) => (
                     <a
                       className={classNames(
@@ -151,7 +156,7 @@ export default function Sorting({ content, setContent }) {
                         "block px-4 py-2 text-sm"
                       )}
                     >
-                      {gettingVote === "asc" ? "Least Liked" : "Most Liked"}
+                      {gettingDate === "asc" ? "Least Recent" : "Most Recent"}
                     </a>
                   )}
                 </Menu.Item>

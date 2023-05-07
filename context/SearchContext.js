@@ -5,28 +5,28 @@ let SearchContext = createContext();
 export let SearchWrapper = ({ children }) => {
   const [searchedWord, setSearchedWord] = useState("");
   const [sortPopularity, setSortPopularity] = useState("desc");
-  const [sortVote, setSortVote] = useState("desc");
+  const [sortDate, setSortDate] = useState("desc");
   const [sortAlphabet, setSortAlphabet] = useState("asc");
   const [selectedPopularity, setSelectedPopularity] = useState(false);
-  const [selectedVote, setSelectedVote] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(false);
   const [selectedAZ, setSelectedAZ] = useState(false);
 
   const resetAllFilters = () => {
     setSearchedWord("");
     setSortPopularity("");
-    setSortVote("");
+    setSortDate("");
     setSortAlphabet("");
     setSelectedPopularity("");
-    setSelectedVote("");
+    setSelectedDate("");
     setSelectedAZ("");
   };
 
   const resetSorting = () => {
     setSortPopularity("");
-    setSortVote("");
+    setSortDate("");
     setSortAlphabet("");
     setSelectedPopularity("");
-    setSelectedVote("");
+    setSelectedDate("");
     setSelectedAZ("");
   };
 
@@ -39,9 +39,9 @@ export let SearchWrapper = ({ children }) => {
       getter: sortPopularity,
       setter: setSortPopularity,
     },
-    vote: {
-      getter: sortVote,
-      setter: setSortVote,
+    date: {
+      getter: sortDate,
+      setter: setSortDate,
     },
     alphabet: {
       getter: sortAlphabet,
@@ -51,9 +51,9 @@ export let SearchWrapper = ({ children }) => {
       getter: selectedPopularity,
       setter: setSelectedPopularity,
     },
-    selectVote: {
-      getter: selectedVote,
-      setter: setSelectedVote,
+    selectDate: {
+      getter: selectedDate,
+      setter: setSelectedDate,
     },
     selectAlphabet: {
       getter: selectedAZ,
