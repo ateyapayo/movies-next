@@ -300,18 +300,19 @@ footer p {
   background-color: black;
 }
 
-.text-404 {
+.content-404 {
+  height: 95vh;
   margin: 0 auto;
   width: 85%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 15em;
   position: relative;
   z-index: 1;
 }
 
-.text-404 h2 {
+.content-404 h2 {
   text-align: center;
   font-weight: 600;
   font-size: 3.3em;
@@ -319,7 +320,7 @@ footer p {
   text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
 }
 
-.text-404 h3 {
+.content-404 h3 {
   margin: 0 auto;
   margin-top: 1em;
   width: 55%;
@@ -330,7 +331,7 @@ footer p {
   text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
 }
 
-.text-404 button {
+.content-404 button {
   border-radius: 0.4em;
   padding: 0.75em 1.8em;
   color: black;
@@ -338,7 +339,7 @@ footer p {
   font-weight: 900;
 }
 
-.text-404 button:hover {
+.content-404 button:hover {
   opacity: 0.8;
 }
 
@@ -351,7 +352,6 @@ footer p {
 .bottom-404 {
   display: flex;
   justify-content: end;
-  padding-top: 13em;
 }
 
 .bottom-from,
@@ -370,22 +370,44 @@ footer p {
 }
 
 @media screen and (max-width: 375px) {
-  .text-404 h2 {
+  .content-404 h2 {
     font-size: 1.4em;
   }
 
-  .text-404 h3 {
+  .content-404 h3 {
     font-size: 0.7em;
   }
 }
 
+@media screen and (max-width: 405px) {
+  .content-404 h2 {
+    font-size: 1.9em !important;
+  }
+
+  .content-404 h3 {
+    font-size: 0.8em !important;
+  }
+}
+
 @media screen and (max-width: 425px) {
-  .text-404 h2 {
+  .content-404 h2 {
     font-size: 1.4em;
   }
 
-  .text-404 h3 {
+  .content-404 h3 {
     font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .content-404 h2 {
+    font-size: 2.5em;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .content-404 h3 {
+    font-size: 1.1em;
   }
 }
 
@@ -420,4 +442,19 @@ footer p {
   .lg-screen-card {
     display: none;
   }
+}
+
+.from-404 {
+  margin-right: 6px;
+  font-size: 15px;
+  font-weight: 100;
+  color: gray;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.57);
+}
+
+.title-404 {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.576);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.57);
 }
