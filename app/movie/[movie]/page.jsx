@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageDetail from "@/app/ImageDetail";
 import StarFull from "@/app/StarFull";
 import StarEmpty from "@/app/StarEmpty";
 
@@ -60,13 +60,10 @@ export default async function MovieDetail({ params }) {
             </h2>
           </div>
         </div>
-        <Image
-          className="my-10 w-full"
-          src={imagePath + res.backdrop_path}
-          alt={res?.title}
-          width={1000}
-          height={1000}
-          priority
+        <ImageDetail
+          imagePath={imagePath}
+          backdropPath={res?.backdrop_path}
+          title={res?.title}
         />
       </div>
       <div className="mt-4">

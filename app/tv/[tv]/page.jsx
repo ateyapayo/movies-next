@@ -1,6 +1,6 @@
-import Image from "next/image";
 import StarFull from "@/app/StarFull";
 import StarEmpty from "@/app/StarEmpty";
+import ImageDetail from "@/app/ImageDetail";
 
 export async function generateStaticParams() {
   const data = await fetch(
@@ -66,13 +66,10 @@ export default async function MovieDetail({ params }) {
             </h2>
           </div>
         </div>
-        <Image
-          className="my-10 w-full"
-          src={imagePath + res.backdrop_path}
-          alt={res.title}
-          width={1000}
-          height={1000}
-          priority
+        <ImageDetail
+          imagePath={imagePath}
+          backdropPath={res?.backdrop_path}
+          title={res?.title}
         />
       </div>
       <div className="mt-4 description">
