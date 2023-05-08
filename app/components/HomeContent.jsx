@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import Movie from "./Movie";
 import Sorting from "./Sorting";
 import { useSearchContext } from "@/context/SearchContext";
+import Loader from "./Loader";
 
 export default function HomeContent({ content }) {
   const context = useSearchContext();
 
-  const [filteredResults, setFilteredResults] = useState(content);
+  const [filteredResults, setFilteredResults] = useState([]);
 
   const searchedWord = context?.keyword?.getter;
 
@@ -19,7 +20,7 @@ export default function HomeContent({ content }) {
         item?.title?.toLowerCase()?.includes(searchedWord?.toLowerCase())
     );
     setFilteredResults(filteredItems);
-  }, [searchedWord, content]);
+  }, [searchedWord]);
 
   useEffect(() => {
     if (
@@ -50,7 +51,7 @@ export default function HomeContent({ content }) {
           />
         ))}
       </div>
-      {filteredResults?.length === 0 && (
+      {context?.keyword?.getter && filteredResults?.length === 0 && (
         <div className="no-results">
           <h1>
             Your search for "{searchedWord}" did not have any matches.

@@ -6,7 +6,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { useSearchContext } from "@/context/SearchContext";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes?.filter(Boolean)?.join(" ");
 }
 export default function Sorting({ content, setContent }) {
   const context = useSearchContext();
@@ -23,14 +23,13 @@ export default function Sorting({ content, setContent }) {
   const selectedDate = context?.selectDate?.getter;
   const selectingDate = context?.selectDate?.setter;
   const selectedAlphabet = context?.selectAlphabet?.getter;
-
   const selectingAlphabet = context?.selectAlphabet?.setter;
 
   const orderByPopularity = () => {
     const sortedResults = [...content].sort((a, b) =>
       gettingPopularity === "desc" || gettingPopularity === ""
-        ? b.popularity - a.popularity
-        : a.popularity - b.popularity
+        ? b?.popularity - a?.popularity
+        : a?.popularity - b?.popularity
     );
     setContent(sortedResults);
     settingPopularity(
@@ -45,13 +44,13 @@ export default function Sorting({ content, setContent }) {
 
   const orderByDate = () => {
     const sortedResults = [...content].sort((a, b) => {
-      const dateA = a.first_air_date || a.release_date;
-      const dateB = b.first_air_date || b.release_date;
+      const dateA = a?.first_air_date || a?.release_date;
+      const dateB = b?.first_air_date || b?.release_date;
 
       if (gettingDate === "desc" || gettingDate === "") {
-        return dateB.localeCompare(dateA);
+        return dateB?.localeCompare(dateA);
       } else {
-        return dateA.localeCompare(dateB);
+        return dateA?.localeCompare(dateB);
       }
     });
     setContent(sortedResults);
@@ -65,13 +64,13 @@ export default function Sorting({ content, setContent }) {
 
   const orderByAlphabet = () => {
     const sortedResults = [...content].sort((a, b) => {
-      const titleA = a.title || a.name;
-      const titleB = b.title || b.name;
+      const titleA = a?.title || a?.name;
+      const titleB = b?.title || b?.name;
 
       if (gettingAlphabet === "desc") {
-        return titleB.localeCompare(titleA);
+        return titleB?.localeCompare(titleA);
       } else {
-        return titleA.localeCompare(titleB);
+        return titleA?.localeCompare(titleB);
       }
     });
     setContent(sortedResults);
@@ -85,7 +84,7 @@ export default function Sorting({ content, setContent }) {
 
   return (
     <div className="section-sort">
-      {content.length > 0 && (
+      {content?.length > 0 && (
         <Menu as="div" className="relative inline-block text-right">
           <div>
             <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-transparent border border-white-900">

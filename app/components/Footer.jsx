@@ -7,8 +7,8 @@ export default function Footer({}) {
   return (
     <>
       {(pathname == "/" ||
-        (pathname.startsWith("/movie/") && pathname !== "/movie") ||
-        (pathname.startsWith("/tv/") && pathname !== "/tv")) && (
+        (pathname?.startsWith("/movie/") && pathname !== "/movie") ||
+        (pathname?.startsWith("/tv/") && pathname !== "/tv")) && (
         <footer>
           <p>A React & NextJS 13 PWA - developed by Andrea Piano.</p> <br />
           <p className="ending">
