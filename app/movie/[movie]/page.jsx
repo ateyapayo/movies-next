@@ -2,14 +2,22 @@ import ImageDetail from "@/app/components/ImageDetail";
 import StarFull from "@/app/components/StarFull";
 import StarEmpty from "@/app/components/StarEmpty";
 import BackHome from "@/app/components/BackHome";
+import { notFound, redirect } from "next/navigation";
 
 export default async function MovieDetail({ params }) {
   const { movie } = params;
+
   const imagePath = "https://image.tmdb.org/t/p/original";
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.API_KEY}`
   );
   const res = await data?.json();
+
+  if (res?.status_code === 34) {
+    notFound();
+  }
+
+  console.log("THIS IS RES ---> ", res);
 
   const vote = Math.round(res?.vote_average / 2);
 

@@ -4,11 +4,11 @@ import { usePathname } from "next/navigation";
 export default function Footer({}) {
   const pathname = usePathname();
 
+  const regexNumbers = /^\d+$/;
+
   return (
     <>
-      {(pathname == "/" ||
-        (pathname?.startsWith("/movie/") && pathname !== "/movie") ||
-        (pathname?.startsWith("/tv/") && pathname !== "/tv")) && (
+      {(pathname == "/" || regexNumbers.test(pathname)) && (
         <footer>
           <p>A React & NextJS 13 PWA - developed by Andrea Piano.</p> <br />
           <p className="ending">
