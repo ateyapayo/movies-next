@@ -28,12 +28,14 @@ export default function Sorting({ content, setContent }) {
 
   const orderByPopularity = () => {
     const sortedResults = [...content].sort((a, b) =>
-      gettingPopularity === "desc"
+      gettingPopularity === "desc" || gettingPopularity === ""
         ? b.popularity - a.popularity
         : a.popularity - b.popularity
     );
     setContent(sortedResults);
-    settingPopularity(gettingPopularity === "desc" ? "asc" : "desc");
+    settingPopularity(
+      gettingPopularity === "desc" || gettingPopularity === "" ? "asc" : "desc"
+    );
     settingAlphabet("asc");
     settingDate("desc");
     selectingPopularity(true);
@@ -46,14 +48,14 @@ export default function Sorting({ content, setContent }) {
       const dateA = a.first_air_date || a.release_date;
       const dateB = b.first_air_date || b.release_date;
 
-      if (gettingDate === "desc") {
+      if (gettingDate === "desc" || gettingDate === "") {
         return dateB.localeCompare(dateA);
       } else {
         return dateA.localeCompare(dateB);
       }
     });
     setContent(sortedResults);
-    settingDate(gettingDate === "desc" ? "asc" : "desc");
+    settingDate(gettingDate === "desc" || gettingDate === "" ? "asc" : "desc");
     settingPopularity("desc");
     settingAlphabet("asc");
     selectingPopularity(false);
