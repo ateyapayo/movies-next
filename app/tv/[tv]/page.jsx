@@ -74,7 +74,7 @@ export default async function MovieDetail({ params }) {
       </div>
       <div className="mt-4 description">
         <h2 className="text-2xl mb-2">Description:</h2>
-        <p className="text-lg desc">{res.overview}</p>
+        <p className="text-lg desc">{res?.overview}</p>
       </div>
     </div>
   );
