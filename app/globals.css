@@ -457,7 +457,7 @@ footer p {
 
 /* LOADER */
 .loader-card {
-  margin-top: 1em;
+  margin-top: -2.5em;
   max-height: 475px;
 }
 

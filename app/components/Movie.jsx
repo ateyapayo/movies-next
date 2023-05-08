@@ -33,11 +33,6 @@ export default function Movie({
 
   return (
     <>
-      {loading && (
-        <div className="loader-div">
-          <Loader customSize={24} />
-        </div>
-      )}
       <div>
         <p className="inline-block my-2 py-1 px-2 rounded-lg genre">
           {media_type === "tv" ? "TV Show" : "Movie"}
@@ -55,6 +50,11 @@ export default function Movie({
         <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
           <div>
             <div className={`${zoom ? "div-card" : ""} lg-screen-card`}>
+              {loading && (
+                <div className="loader-div">
+                  <Loader customSize={24} />
+                </div>
+              )}
               <Image
                 className={`${zoom ? "img-card" : ""}`}
                 width={800}
