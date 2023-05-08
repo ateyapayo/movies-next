@@ -52,7 +52,6 @@ body {
 
   .link-logo {
     align-self: normal !important;
-    /* margin-top: 1.2em; */
   }
 
   .search-container {
@@ -307,7 +306,7 @@ footer p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 15em;
+  padding-top: 18em;
   position: relative;
   z-index: 1;
 }
@@ -315,7 +314,7 @@ footer p {
 .content-404 h2 {
   text-align: center;
   font-weight: 600;
-  font-size: 3.3em;
+  font-size: 70px;
   letter-spacing: 0.06em;
   text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
 }
@@ -326,13 +325,14 @@ footer p {
   width: 55%;
   text-align: center;
   font-weight: 300;
-  font-size: 1.4em;
+  font-size: 1.6em;
   color: white;
   text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .content-404 button {
   border-radius: 0.4em;
+  font-size: 1.1em;
   padding: 0.75em 1.8em;
   color: black;
   background-color: white;
@@ -371,7 +371,7 @@ footer p {
 
 @media screen and (max-width: 375px) {
   .content-404 h2 {
-    font-size: 1.4em;
+    font-size: 40px;
   }
 
   .content-404 h3 {
@@ -381,33 +381,53 @@ footer p {
 
 @media screen and (max-width: 405px) {
   .content-404 h2 {
-    font-size: 1.9em !important;
+    font-size: 30px;
   }
 
   .content-404 h3 {
-    font-size: 0.8em !important;
+    font-size: 0.8em ;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .content-404 h2 {
-    font-size: 1.4em;
-  }
+
 
   .content-404 h3 {
-    font-size: 0.8em;
+    font-size: 0.4em;
   }
 }
 
 @media screen and (max-width: 535px) {
   .content-404 h2 {
-    font-size: 2.5em;
+    font-size: 20px ;
   }
 }
 
 @media screen and (max-width: 650px) {
+  .content-404 h2 {
+    font-size: 30px !important;
+  }
+
   .content-404 h3 {
-    font-size: 1.1em;
+    font-size: 12px !important;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .content-404 {
+    padding-top: 14em;
+  }
+
+  .content-404 h2 {
+    font-size: 55px;
+  }
+
+  .content-404 h3 {
+    font-size: 1.3em;
+  }
+
+  .content-404 button {
+    font-size: 1em;
   }
 }
 
