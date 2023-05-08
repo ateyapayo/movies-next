@@ -7,10 +7,10 @@ export async function generateStaticParams() {
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
-  const res = await data.json();
+  const res = await data?.json();
 
   return res?.results?.map((movie) => ({
-    movie: toString(movie.id),
+    movie: toString(movie?.id),
   }));
 }
 
@@ -20,7 +20,7 @@ export default async function MovieDetail({ params }) {
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.API_KEY}`
   );
-  const res = await data.json();
+  const res = await data?.json();
 
   const vote = Math.round(res?.vote_average / 2);
 
@@ -70,7 +70,7 @@ export default async function MovieDetail({ params }) {
       </div>
       <div className="mt-4">
         <h2 className="text-2xl mb-2">Description:</h2>
-        <p className="text-lg desc">{res.overview}</p>
+        <p className="text-lg desc">{res?.overview}</p>
       </div>
     </div>
   );

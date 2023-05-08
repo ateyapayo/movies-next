@@ -15,8 +15,8 @@ export default function HomeContent({ content }) {
   useEffect(() => {
     const filteredItems = content?.filter(
       (item) =>
-        item?.name?.toLowerCase().includes(searchedWord.toLowerCase()) ||
-        item?.title?.toLowerCase().includes(searchedWord.toLowerCase())
+        item?.name?.toLowerCase()?.includes(searchedWord?.toLowerCase()) ||
+        item?.title?.toLowerCase()?.includes(searchedWord?.toLowerCase())
     );
     setFilteredResults(filteredItems);
   }, [searchedWord, content]);
@@ -50,7 +50,7 @@ export default function HomeContent({ content }) {
           />
         ))}
       </div>
-      {filteredResults.length === 0 && (
+      {filteredResults?.length === 0 && (
         <div className="no-results">
           <h1>
             Your search for "{searchedWord}" did not have any matches.
