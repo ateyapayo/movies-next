@@ -459,6 +459,11 @@ footer p {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.57);
 }
 
-.loader-div {
-  padding: 5em 0;
+.loader-card {
+margin-top: 1em;
+max-height: 475px;
 }
+
+.loader-detail {
+  max-height: 1000px;
+  }
