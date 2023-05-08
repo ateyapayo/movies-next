@@ -127,6 +127,28 @@ input:focus {
 
 
 /* DETAIL */
+.div-back {
+  margin-top: -1em;
+}
+
+.arrow-back {
+  margin-right: .2em;
+  align-self: center;
+  font-size: 16px; 
+  color: white;
+}
+
+.text-back{
+  align-self: center;
+  font-size: 15px;
+  color: white;
+}
+
+.text-back:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 0.06rem;
+}
+
 .star {
   display: flex;
   align-self: center;
