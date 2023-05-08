@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-import NetflixLogo from "../public/logo.png";
-import { useSearchContext } from "../context/SearchContext";
+import NetflixLogo from "../../public/logo.png";
+import { useSearchContext } from "../../context/SearchContext";
 
 import Search from "./Search";
 

@@ -1,6 +1,6 @@
-import StarFull from "@/app/StarFull";
-import StarEmpty from "@/app/StarEmpty";
-import ImageDetail from "@/app/ImageDetail";
+import StarFull from "@/app/components/StarFull";
+import StarEmpty from "@/app/components/StarEmpty";
+import ImageDetail from "@/app/components/ImageDetail";
 
 export async function generateStaticParams() {
   const data = await fetch(

@@ -1,4 +1,4 @@
-import HomeContent from "./HomeContent";
+import HomeContent from "./components/HomeContent";
 
 export default async function Home() {
   const page1Data = await fetch(
