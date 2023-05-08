@@ -13,7 +13,5 @@ export default async function Home() {
 
   const results = [...page1Res.results, ...page2Res.results];
 
-  console.log(results);
-
   return <HomeContent content={results} />;
 }

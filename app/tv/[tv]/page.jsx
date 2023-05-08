@@ -9,7 +9,7 @@ export async function generateStaticParams() {
   );
   const res = await data.json();
 
-  return res.results.map((tv) => ({
+  return res?.results?.map((tv) => ({
     tv: toString(tv.id),
   }));
 }
@@ -64,7 +64,7 @@ export default async function MovieDetail({ params }) {
             </div>
 
             <h2 className="rating-text pt-3">
-              {res?.vote_count.toLocaleString()} ratings with an average of{" "}
+              {res?.vote_count?.toLocaleString()} ratings with an average of{" "}
               {(res?.vote_average / 2).toFixed(2)} out of 5 stars.
             </h2>
           </div>

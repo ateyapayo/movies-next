@@ -262,7 +262,7 @@ input:focus {
   display: flex;
   margin-bottom: 2em;
   padding-top: 5em;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .menu-items {
@@ -397,7 +397,7 @@ footer p {
 
 .bottom-404 {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .bottom-from,
