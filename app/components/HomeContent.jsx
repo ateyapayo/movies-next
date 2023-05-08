@@ -8,7 +8,7 @@ import { useSearchContext } from "@/context/SearchContext";
 export default function HomeContent({ content }) {
   const context = useSearchContext();
 
-  const [filteredResults, setFilteredResults] = useState([]);
+  const [filteredResults, setFilteredResults] = useState(content);
 
   const searchedWord = context?.keyword?.getter;
 
@@ -20,7 +20,6 @@ export default function HomeContent({ content }) {
     );
     setFilteredResults(filteredItems);
   }, [searchedWord]);
-
 
   useEffect(() => {
     if (
