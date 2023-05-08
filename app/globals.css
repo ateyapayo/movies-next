@@ -108,13 +108,12 @@ input:focus {
 @media screen and (max-width: 450px) {
   .navbar-container {
     margin: 0 auto;
-    margin-top: 1.2em;
     flex-direction: column;
+    align-self: center;
   }
 
   .navbar {
-    margin-bottom: 1em;
-    height: auto;
+   height: 122px;
   }
 
   .link-logo {
