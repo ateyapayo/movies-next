@@ -22,6 +22,7 @@ export default function HomeContent({ content }) {
     setFilteredResults(filteredItems);
   }, [searchedWord]);
 
+  
   useEffect(() => {
     if (
       context?.alphabet?.getter == "" &&
