@@ -3,17 +3,6 @@ import StarEmpty from "@/app/components/StarEmpty";
 import ImageDetail from "@/app/components/ImageDetail";
 import BackHome from "@/app/components/BackHome";
 
-export async function generateStaticParams() {
-  const data = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process?.env?.API_KEY}`
-  );
-  const res = await data?.json();
-
-  return res?.results?.map((tv) => ({
-    tv: toString(tv?.id),
-  }));
-}
-
 export default async function MovieDetail({ params }) {
   const { tv } = params;
 

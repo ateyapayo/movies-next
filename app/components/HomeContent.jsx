@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Movie from "./Movie";
 import Sorting from "./Sorting";
 import { useSearchContext } from "@/context/SearchContext";
-import Loader from "./Loader";
 
 export default function HomeContent({ content }) {
   const context = useSearchContext();
@@ -22,7 +21,7 @@ export default function HomeContent({ content }) {
     setFilteredResults(filteredItems);
   }, [searchedWord]);
 
-  
+
   useEffect(() => {
     if (
       context?.alphabet?.getter == "" &&
