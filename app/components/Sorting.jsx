@@ -27,12 +27,6 @@ export default function Sorting({ content, setContent }) {
   const selectedAlphabet = context?.selectAlphabet?.getter;
   const selectingAlphabet = context?.selectAlphabet?.setter;
 
-  const handleMenu = () => {
-    if (!menuIsOpen) {
-      setMenuIsOpen(true);
-    } else setMenuIsOpen(false);
-  };
-
   const orderByPopularity = () => {
     const sortedResults = [...content].sort((a, b) =>
       gettingPopularity === "desc" || gettingPopularity === ""
@@ -48,10 +42,6 @@ export default function Sorting({ content, setContent }) {
     selectingPopularity(true);
     selectingDate(false);
     selectingAlphabet(false);
-
-    if (!menuIsOpen) {
-      setMenuIsOpen(true);
-    } else setMenuIsOpen(false);
   };
 
   const orderByDate = () => {
@@ -72,10 +62,6 @@ export default function Sorting({ content, setContent }) {
     selectingPopularity(false);
     selectingDate(true);
     selectingAlphabet(false);
-
-    if (!menuIsOpen) {
-      setMenuIsOpen(true);
-    } else setMenuIsOpen(false);
   };
 
   const orderByAlphabet = () => {
@@ -96,22 +82,14 @@ export default function Sorting({ content, setContent }) {
     selectingPopularity(false);
     selectingDate(false);
     selectingAlphabet(true);
-
-    if (!menuIsOpen) {
-      setMenuIsOpen(true);
-    } else setMenuIsOpen(false);
   };
 
   return (
     <div className="section-sort">
       {content?.length > 0 && (
         <Menu as="div" className="relative inline-block text-right">
-          <div>
-            <Menu.Button
-              onClick={handleMenu}
-              onFocus={() => setMenuIsOpen(false)}
-              className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-transparent border border-white-900"
-            >
+          <div onMouseDown={(e) => e.stopPropagation()}>
+            <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-transparent border border-white-900">
               {!selectedDate &&
                 !selectedPopularity &&
                 !selectedAlphabet &&
@@ -127,38 +105,20 @@ export default function Sorting({ content, setContent }) {
               {selectedAlphabet && gettingAlphabet === "desc" ? "A-Z" : ""}
               {gettingAlphabet === "asc" && selectedAlphabet ? "Z-A" : ""}
 
-              {menuIsOpen ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5 ml-2 -mr-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  transform="rotate(180)"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5 ml-2 -mr-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              )}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 ml-2 -mr-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
             </Menu.Button>
           </div>
 
