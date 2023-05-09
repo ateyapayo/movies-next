@@ -281,7 +281,7 @@ input:focus {
 
 @media screen and (max-width: 450px) {
   .no-results {
-    height: 33vh;
+    height: 32vh;
   }
 }
 
