@@ -251,7 +251,38 @@ input:focus {
 .no-results {
   display: flex;
   justify-content: center;
-  margin: 6em 0 26em 0;
+  margin-top: 6em;
+  height: 55vh;
+}
+
+@media screen and (max-width: 1600px) {
+  .no-results {
+    height: 40vh;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .no-results {
+    height: 43vh;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .no-results {
+    height: 43vh;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .no-results {
+    height: 41vh;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .no-results {
+    height: 33vh;
+  }
 }
 
 .no-results h1 {
