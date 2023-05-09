@@ -1,4 +1,5 @@
 "use client";
+
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
 export default function StarEmpty({}) {
