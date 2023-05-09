@@ -501,13 +501,13 @@ footer p {
 
 @media screen and (max-width: 500px) {
   .loader-detail {
-    margin-top: -13em;
+    margin-top: -13.5em;
   }
 }
 
 @media screen and (max-width: 600px) {
   .loader-detail {
-    margin-top: -11em;
+    margin-top: -12em !important;
   }
 }
 
