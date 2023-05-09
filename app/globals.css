@@ -313,7 +313,7 @@ input:focus {
 /* FOOTER */
 footer {
   margin-top: 7em;
-  margin-bottom: 1em;
+  margin-bottom: 1.2em;
 }
 
 footer p {
@@ -489,4 +489,30 @@ footer p {
 
 .loader-detail {
   max-height: 1000px;
+}
+
+
+@media screen and (max-width: 400px) {
+  .loader-detail {
+    margin-top: -15em;
+
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .loader-detail {
+    margin-top: -13em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .loader-detail {
+    margin-top: -11em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .loader-detail {
+    margin-top: -9em;
+  }
 }
