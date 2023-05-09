@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 import { useSearchContext } from "@/context/SearchContext";
@@ -10,6 +10,8 @@ function classNames(...classes) {
 }
 export default function Sorting({ content, setContent }) {
   const context = useSearchContext();
+
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const gettingPopularity = context?.popularity?.getter;
   const settingPopularity = context?.popularity?.setter;
@@ -24,6 +26,12 @@ export default function Sorting({ content, setContent }) {
   const selectingDate = context?.selectDate?.setter;
   const selectedAlphabet = context?.selectAlphabet?.getter;
   const selectingAlphabet = context?.selectAlphabet?.setter;
+
+  const handleMenu = () => {
+    if (!menuIsOpen) {
+      setMenuIsOpen(true);
+    } else setMenuIsOpen(false);
+  };
 
   const orderByPopularity = () => {
     const sortedResults = [...content].sort((a, b) =>
@@ -40,6 +48,10 @@ export default function Sorting({ content, setContent }) {
     selectingPopularity(true);
     selectingDate(false);
     selectingAlphabet(false);
+
+    if (!menuIsOpen) {
+      setMenuIsOpen(true);
+    } else setMenuIsOpen(false);
   };
 
   const orderByDate = () => {
@@ -60,6 +72,10 @@ export default function Sorting({ content, setContent }) {
     selectingPopularity(false);
     selectingDate(true);
     selectingAlphabet(false);
+
+    if (!menuIsOpen) {
+      setMenuIsOpen(true);
+    } else setMenuIsOpen(false);
   };
 
   const orderByAlphabet = () => {
@@ -80,6 +96,10 @@ export default function Sorting({ content, setContent }) {
     selectingPopularity(false);
     selectingDate(false);
     selectingAlphabet(true);
+
+    if (!menuIsOpen) {
+      setMenuIsOpen(true);
+    } else setMenuIsOpen(false);
   };
 
   return (
@@ -87,7 +107,11 @@ export default function Sorting({ content, setContent }) {
       {content?.length > 0 && (
         <Menu as="div" className="relative inline-block text-right">
           <div>
-            <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-transparent border border-white-900">
+            <Menu.Button
+              onClick={handleMenu}
+              onFocus={() => setMenuIsOpen(false)}
+              className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-transparent border border-white-900"
+            >
               {!selectedDate &&
                 !selectedPopularity &&
                 !selectedAlphabet &&
@@ -103,20 +127,38 @@ export default function Sorting({ content, setContent }) {
               {selectedAlphabet && gettingAlphabet === "desc" ? "A-Z" : ""}
               {gettingAlphabet === "asc" && selectedAlphabet ? "Z-A" : ""}
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 ml-2 -mr-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              {menuIsOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 ml-2 -mr-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  transform="rotate(180)"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 ml-2 -mr-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              )}
             </Menu.Button>
           </div>
 
