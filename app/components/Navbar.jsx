@@ -21,7 +21,11 @@ export default function Navbar({}) {
   };
   return (
     <>
-      <div className="flex navbar py-1 navbar-scrolled">
+      <div
+        className={`flex navbar py-1 navbar-scrolled  ${
+          pathname != "/" ? "detail-navbar" : ""
+        }`}
+      >
         <div className="container navbar-container">
           <Link className="link-logo mr-10" href="/" onClick={scrollToTop}>
             <Image

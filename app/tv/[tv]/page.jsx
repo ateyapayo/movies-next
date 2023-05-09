@@ -1,7 +1,6 @@
 import StarFull from "@/app/components/StarFull";
 import StarEmpty from "@/app/components/StarEmpty";
 import ImageDetail from "@/app/components/ImageDetail";
-import BackHome from "@/app/components/BackHome";
 
 import { notFound } from "next/navigation";
 
@@ -35,7 +34,6 @@ export default async function MovieDetail({ params }) {
   return (
     <div className="mt-8 container">
       <div className="container-detail">
-        <BackHome />
         <h2 className="text-4xl">{res?.name}</h2>
         <h2>TV Show</h2>
         <h1 className="text-lg">First air date: {res?.first_air_date}</h1>

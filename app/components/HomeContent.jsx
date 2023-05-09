@@ -32,6 +32,10 @@ export default function HomeContent({ content }) {
     }
   });
 
+  useEffect(() => {
+    context?.custom404?.setErrorPage(false);
+  });
+
   return (
     <main className="container">
       <Sorting setContent={setFilteredResults} content={filteredResults} />

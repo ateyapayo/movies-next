@@ -2,7 +2,16 @@
 
 import Link from "next/link";
 
+import { useSearchContext } from "@/context/SearchContext";
+import { useEffect } from "react";
+
 export default function Custom404() {
+  const context = useSearchContext();
+
+  useEffect(() => {
+    context?.custom404?.setErrorPage(true);
+  });
+
   return (
     <div className="not-exist">
       <div className="content-404">

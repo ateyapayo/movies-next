@@ -1,14 +1,13 @@
 "use client";
-import { usePathname } from "next/navigation";
+
+import { useSearchContext } from "@/context/SearchContext";
 
 export default function Footer({}) {
-  const pathname = usePathname();
-
-  const regexNumbers = /^\d+$/;
+  const context = useSearchContext();
 
   return (
     <>
-      {(pathname == "/" || regexNumbers.test(pathname)) && (
+      {!context?.custom404?.errorPage && (
         <footer>
           <p>A React & NextJS 13 PWA - developed by Andrea Piano.</p> <br />
           <p className="ending">

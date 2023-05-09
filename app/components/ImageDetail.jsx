@@ -1,16 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { useSearchContext } from "@/context/SearchContext";
 
 import Loader from "./Loader";
 
 export default function ImageDetail({ imagePath, backdropPath, title }) {
+  const context = useSearchContext();
   const [loading, setLoading] = useState(true);
 
   const handleImageLoad = () => {
     setLoading(false);
   };
+
+  useEffect(() => {
+    context?.custom404?.setErrorPage(false);
+  });
   return (
     <>
       {loading && <Loader customSize={50} />}

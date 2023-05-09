@@ -53,6 +53,10 @@ p,
   align-self: center;
 }
 
+.detail-navbar {
+  height: 70px !important;
+}
+
 .link-logo {
   display: flex;
   align-self: center;

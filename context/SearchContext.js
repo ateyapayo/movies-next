@@ -11,6 +11,8 @@ export let SearchWrapper = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState(false);
   const [selectedAZ, setSelectedAZ] = useState(false);
 
+  const [is404, setIs404] = useState(false);
+
   const resetAllFilters = () => {
     setSearchedWord("");
     setSortPopularity("");
@@ -62,6 +64,10 @@ export let SearchWrapper = ({ children }) => {
     filters: {
       clear: resetAllFilters,
       noSorting: resetSorting,
+    },
+    custom404: {
+      errorPage: is404,
+      setErrorPage: setIs404,
     },
   };
 
