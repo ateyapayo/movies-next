@@ -6,7 +6,6 @@ export default function StarEmpty({}) {
   return (
     <div>
       <StarOutlineIcon className="star" />
-      <></>
     </div>
   );
 }
