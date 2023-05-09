@@ -213,6 +213,7 @@ input:focus {
 
 .rating-text {
   font-size: 14px;
+  text-align: center;
 }
 
 .desc {
@@ -234,7 +235,7 @@ input:focus {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 430px) {
   .rating-text {
     font-size: 12px;
   }
