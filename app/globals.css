@@ -15,12 +15,10 @@ p,
   color: white;
 }
 
-
 /* EXTRA  */
 .pointer {
   cursor: pointer;
 }
-
 
 /* CONTAINER  */
 .container {
@@ -31,7 +29,6 @@ p,
 .container-detail {
   padding-top: 6em;
 }
-
 
 /* NAVBAR  */
 .navbar {
@@ -117,11 +114,12 @@ input:focus {
   }
 
   .navbar {
-   height: 122px;
+    height: 131px;
   }
 
   .link-logo {
     align-self: normal;
+    margin-bottom: 0.52em;
   }
 
   .search-container {
@@ -129,20 +127,19 @@ input:focus {
   }
 }
 
-
 /* DETAIL */
 .div-back {
   margin-top: -1em;
 }
 
 .arrow-back {
-  margin-right: .2em;
+  margin-right: 0.2em;
   align-self: center;
-  font-size: 16px; 
+  font-size: 16px;
   color: #e50914;
 }
 
-.text-back{
+.text-back {
   align-self: center;
   font-size: 15px;
   color: white;
@@ -237,16 +234,23 @@ input:focus {
 
 @media screen and (max-width: 440px) {
   .rating-text {
-    font-size: 12px; 
+    font-size: 12px;
+  }
+
+  .title-desc {
+    font-size: 20px;
+  }
+
+  .desc {
+    font-size: 15px;
   }
 }
 
 @media screen and (max-width: 400px) {
   .rating-text {
-    font-size: 11px; 
+    font-size: 11px;
   }
 }
-
 
 /* CARDS */
 
@@ -311,10 +315,9 @@ input:focus {
   background-color: #141414;
 }
 
-
 @media screen and (max-width: 450px) {
   .section-sort {
-    padding-top: 7.9em;
+    padding-top: 8.25em;
   }
 }
 
@@ -347,7 +350,6 @@ input:focus {
   }
 }
 
-
 /* FOOTER */
 footer {
   margin-top: 7em;
@@ -363,7 +365,6 @@ footer p {
   font-size: 11px;
 }
 
-
 /* 404 - PAGE NOT FOUND */
 .not-exist {
   width: 100vw;
@@ -372,7 +373,6 @@ footer p {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
 }
 
 .not-exist::before {
@@ -475,7 +475,7 @@ footer p {
 
 @media screen and (max-width: 535px) {
   .content-404 h2 {
-    font-size: 20px ;
+    font-size: 20px;
   }
 }
 
@@ -518,7 +518,6 @@ footer p {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.57);
 }
 
-
 /* LOADER */
 .loader-card {
   margin-top: -2.5em;
@@ -529,11 +528,9 @@ footer p {
   max-height: 1000px;
 }
 
-
 @media screen and (max-width: 400px) {
   .loader-detail {
     margin-top: -15em;
-
   }
 }
 
