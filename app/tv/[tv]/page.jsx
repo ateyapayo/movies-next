@@ -3,6 +3,8 @@ import StarEmpty from "@/app/components/StarEmpty";
 import ImageDetail from "@/app/components/ImageDetail";
 import BackHome from "@/app/components/BackHome";
 
+import { notFound } from "next/navigation";
+
 export default async function MovieDetail({ params }) {
   const { tv } = params;
 
@@ -11,6 +13,10 @@ export default async function MovieDetail({ params }) {
     `https://api.themoviedb.org/3/tv/${tv}?api_key=${process?.env?.API_KEY}`
   );
   const res = await data?.json();
+
+  if (res?.status_code === 34) {
+    notFound();
+  }
 
   const vote = Math.round(res?.vote_average / 2);
 
