@@ -49,13 +49,6 @@ p,
   align-self: center;
 }
 
-.home-navbar {
-  height: 70px;
-}
-.detail-navbar {
-  height: 70px;
-}
-
 .link-logo {
   display: flex;
   align-self: center;
@@ -65,7 +58,6 @@ p,
   min-width: 100px;
   align-self: center;
 }
-
 
 .search-container {
   display: flex;
@@ -118,10 +110,6 @@ input:focus {
 
   .home-navbar {
     height: 131px;
-  }
-
-  .detail-navbar {
-    height: 70.5px;
   }
 
   .link-logo {
@@ -371,10 +359,8 @@ footer p {
   font-size: 11px;
 }
 
-
 /* 404 - PAGE NOT FOUND */
 .not-exist {
-
   height: 100vh;
   background-image: url("/images/lost.jpg");
   background-repeat: no-repeat;
