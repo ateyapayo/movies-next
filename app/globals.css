@@ -248,7 +248,7 @@ input:focus {
   }
 
   .desc {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
@@ -370,6 +370,7 @@ footer p {
 .ending {
   font-size: 11px;
 }
+
 
 /* 404 - PAGE NOT FOUND */
 .not-exist {
