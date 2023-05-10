@@ -35,7 +35,6 @@ p,
   padding-top: 0;
   margin: 0 auto;
   width: 100%;
-  min-height: 70px;
   height: 70px;
   position: fixed;
   justify-content: space-between;
@@ -50,8 +49,11 @@ p,
   align-self: center;
 }
 
+.home-navbar {
+  height: 70px;
+}
 .detail-navbar {
-  height: 78px !important;
+  height: 70px;
 }
 
 .link-logo {
@@ -60,7 +62,7 @@ p,
 }
 
 .logo {
-  min-width: 95px;
+  min-width: 100px;
   align-self: center;
 }
 
@@ -113,8 +115,12 @@ input:focus {
     align-self: center;
   }
 
-  .navbar {
+  .home-navbar {
     height: 131px;
+  }
+
+  .detail-navbar {
+    height: 77.5px;
   }
 
   .link-logo {
