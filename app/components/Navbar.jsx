@@ -11,6 +11,8 @@ import Search from "./Search";
 
 export default function Navbar({}) {
   const context = useSearchContext();
+
+  const is404 = context?.custom404?.errorPage;
   const reset = context?.filters?.clear;
   const pathname = usePathname();
 
@@ -27,7 +29,11 @@ export default function Navbar({}) {
         }`}
       >
         <div className="container navbar-container">
-          <Link className="link-logo mr-10" href="/" onClick={scrollToTop}>
+          <Link
+            className={`link-logo mr-10 ${is404 && "error-logo"}`}
+            href="/"
+            onClick={scrollToTop}
+          >
             <Image
               onClick={reset}
               className="logo"

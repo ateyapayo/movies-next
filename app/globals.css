@@ -66,6 +66,10 @@ p,
   align-self: center;
 }
 
+.error-logo {
+  margin-left: -0.75px;
+}
+
 .search-container {
   display: flex;
   padding: 0 0.2em;
@@ -120,16 +124,15 @@ input:focus {
   }
 
   .detail-navbar {
-    height: 77.5px;
+    height: 70.5px;
   }
 
   .link-logo {
     align-self: normal;
-    margin-bottom: 0.52em;
   }
 
   .search-container {
-    margin-top: 1em;
+    margin-top: 1.52em;
   }
 }
 
@@ -397,7 +400,7 @@ footer p {
   margin: 0 auto;
   position: relative;
   padding-top: 18em;
-  height: 95vh;
+  height: 100vh;
   width: 85%;
   display: flex;
   flex-direction: column;
@@ -444,6 +447,7 @@ footer p {
 }
 
 .bottom-404 {
+  margin-bottom: 1.75em;
   display: flex;
   justify-content: flex-end;
 }
