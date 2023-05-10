@@ -40,7 +40,7 @@ export default function HomeContent({ content }) {
     <main className="container">
       <Sorting setContent={setFilteredResults} content={filteredResults} />
 
-      <div className="grid gap-16 grid-cols-fluid">
+      <div className="grid gap-16 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {filteredResults?.map((movie) => (
           <Movie
             filteredResults={filteredResults}

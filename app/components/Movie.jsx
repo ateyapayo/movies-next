@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import PopularIcon from "./Trend";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Loader from "./Loader";
 
 export default function Movie({
@@ -12,9 +12,7 @@ export default function Movie({
   poster_path,
   media_type,
   popularity,
-  filteredResults,
 }) {
-  const [zoom, setZoom] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const handleImageLoad = () => {
@@ -22,14 +20,6 @@ export default function Movie({
   };
 
   const imagePath = "https://image.tmdb.org/t/p/original/";
-
-  useEffect(() => {
-    if (filteredResults?.length > 3) {
-      setZoom(true);
-    } else {
-      setZoom(false);
-    }
-  }, [filteredResults]);
 
   return (
     <>
@@ -49,14 +39,14 @@ export default function Movie({
 
         <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
           <div>
-            <div className={`${zoom ? "div-card" : ""} lg-screen-card`}>
+            <div className="div-card lg-screen-card">
               {loading && (
                 <div className="loader-div">
                   <Loader customSize={24} />
                 </div>
               )}
               <Image
-                className={`${zoom ? "img-card" : ""}`}
+                className="img-card"
                 width={800}
                 height={800}
                 src={imagePath + poster_path}
