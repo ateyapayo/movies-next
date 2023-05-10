@@ -23,7 +23,7 @@ export default function Navbar({}) {
   return (
     <>
       <div
-        className={`flex navbar py-1 navbar-scrolled ${
+        className={`flex navbar navbar-scrolled ${
           pathname == "/" ? "home-navbar" : "detail-navbar"
         }`}
       >

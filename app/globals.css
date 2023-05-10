@@ -374,7 +374,7 @@ footer p {
 
 /* 404 - PAGE NOT FOUND */
 .not-exist {
-  width: 100vw;
+
   height: 100vh;
   background-image: url("/images/lost.jpg");
   background-repeat: no-repeat;
