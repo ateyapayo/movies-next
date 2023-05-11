@@ -1,13 +1,20 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import StarFull from "./StarFull";
 import StarEmpty from "./StarEmpty";
 
 import ImageDetail from "./ImageDetail";
-import { useRouter } from "next/navigation";
+
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useSearchContext } from "@/context/SearchContext";
 
 export default function DetailModule({ res }) {
   const router = useRouter();
+  const context = useSearchContext();
+
+  const searchedResult = context?.keyword?.getter;
   console.log("THIS IS RES ---> ", res);
   const imagePath = "https://image.tmdb.org/t/p/original";
 
@@ -28,12 +35,20 @@ export default function DetailModule({ res }) {
   return (
     <div className="mt-8 container">
       <div className="container-detail">
-        <span onClick={() => router.back()}>GO BACK</span>
+        {searchedResult && (
+          <div className="div-back">
+            <ArrowBackIcon className="arrow-back" />
+            <span className="text-back pointer" onClick={() => router.back()}>
+              Go back to the search results
+            </span>
+          </div>
+        )}
+
         <h2 className="text-4xl">{res?.title || res?.name}</h2>
         <h1 className="text-lg">
           {res?.last_episode_to_air ? "TV Show" : "Movie"}
         </h1>
-        <h1 className="text-lg ">
+        <h1 className="text-lg">
           {res?.release_date ||
             (res?.first_air_date
               ? "First air date: " + res?.first_air_date
