@@ -4,8 +4,10 @@ import StarFull from "./StarFull";
 import StarEmpty from "./StarEmpty";
 
 import ImageDetail from "./ImageDetail";
+import { useRouter } from "next/navigation";
 
 export default function DetailModule({ res }) {
+  const router = useRouter();
   console.log("THIS IS RES ---> ", res);
   const imagePath = "https://image.tmdb.org/t/p/original";
 
@@ -26,6 +28,7 @@ export default function DetailModule({ res }) {
   return (
     <div className="mt-8 container">
       <div className="container-detail">
+        <span onClick={() => router.back()}>GO BACK</span>
         <h2 className="text-4xl">{res?.title || res?.name}</h2>
         <h1 className="text-lg">
           {res?.last_episode_to_air ? "TV Show" : "Movie"}

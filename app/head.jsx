@@ -18,7 +18,7 @@ export default function Head() {
     } else if (pathname.startsWith("/movie")) {
       setTitle("Movie Detail");
     }
-  }, [pathname, title]);
+  }, [pathname]);
   return (
     <>
       <title>{title}</title>
