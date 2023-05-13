@@ -36,11 +36,9 @@ export default function DetailModule({ res }) {
     <div className="mt-8 container">
       <div className="container-detail">
         {searchedResult && (
-          <div className="div-back">
+          <div className="div-back pointer" onClick={() => router.back()}>
             <ArrowBackIcon className="arrow-back" />
-            <span className="text-back pointer" onClick={() => router.back()}>
-              Go back to the search results
-            </span>
+            <span className="text-back">Go back to the search results</span>
           </div>
         )}
 
