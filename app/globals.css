@@ -250,6 +250,36 @@ input:focus {
 
 /* CARDS */
 
+.results-found {
+  display: flex;
+  justify-content: center;
+  height: 37px;
+  max-width: 170px;
+}
+
+.results-text {
+  display: flex;
+  padding: 0.5em 0;
+}
+
+.results-text h1 {
+  font-size: 14.5px;
+}
+
+.results-text .result {
+  margin-left: 0.75em;
+  align-self: center;
+}
+
+.results-found .title {
+  align-self: center;
+  align-self: center;
+}
+
+.cards {
+  margin-top: 1.5em;
+}
+
 .trend {
   margin-right: 5px;
   color: white;
@@ -287,6 +317,10 @@ input:focus {
 }
 
 @media screen and (max-width: 450px) {
+  .results-found {
+    margin-top: -4.35em;
+    margin-bottom: 2em;
+  }
   .no-results {
     height: 32vh;
   }

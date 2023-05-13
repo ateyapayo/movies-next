@@ -9,8 +9,15 @@ export default function HomeContent({ content }) {
   const context = useSearchContext();
 
   const [filteredResults, setFilteredResults] = useState(content);
+  const [resultsText, setResultsText] = useState(false);
 
   const searchedWord = context?.keyword?.getter;
+
+  useEffect(() => {
+    if (searchedWord && filteredResults?.length > 0) {
+      setResultsText(true);
+    } else setResultsText(false);
+  }, [searchedWord, filteredResults]);
 
   useEffect(() => {
     const filteredItems = content?.filter(
@@ -40,7 +47,23 @@ export default function HomeContent({ content }) {
     <main className="container">
       <Sorting setContent={setFilteredResults} content={filteredResults} />
 
-      <div className="grid gap-16 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      {filteredResults.length !== 0 && (
+        <div
+          className={`results-found ${
+            filteredResults.length < 28 && "border"
+          } `}
+        >
+          {resultsText ? (
+            <div className="results-text">
+              <h1 className="title">Results found:</h1>
+              <h1 className="result">{filteredResults?.length}</h1>
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
+      )}
+      <div className="grid gap-16 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 cards">
         {filteredResults?.map((movie) => (
           <Movie
             filteredResults={filteredResults}
