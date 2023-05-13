@@ -319,7 +319,7 @@ input:focus {
 
 @media screen and (max-width: 450px) {
   .results-found {
-    margin-top: -4.37em;
+    margin-top: -3.77em;
     margin-bottom: 2em;
   }
   .no-results {
@@ -337,7 +337,7 @@ input:focus {
 
 .section-sort {
   display: flex;
-  margin-bottom: 2em;
+  margin-bottom: 1.4em;
   padding-top: 5em;
   justify-content: flex-end;
 }
@@ -348,7 +348,7 @@ input:focus {
 
 @media screen and (max-width: 450px) {
   .section-sort {
-    padding-top: 8.25em;
+    padding-top: 9.15em;
   }
 }
 
