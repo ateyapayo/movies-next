@@ -253,7 +253,7 @@ input:focus {
 .results-found {
   display: flex;
   justify-content: center;
-  height: 37.5px;
+  height: 37.9px;
   max-width: 170px;
 }
 
