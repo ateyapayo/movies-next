@@ -32,6 +32,7 @@ p,
 
 /* NAVBAR  */
 .navbar {
+  top: 0;
   padding-top: 0;
   margin: 0 auto;
   width: 100%;
@@ -338,7 +339,7 @@ input:focus {
 .section-sort {
   display: flex;
   margin-bottom: 1.4em;
-  padding-top: 5em;
+  margin-top: 5em;
   justify-content: flex-end;
 }
 
@@ -348,7 +349,7 @@ input:focus {
 
 @media screen and (max-width: 450px) {
   .section-sort {
-    padding-top: 10.4em;
+    margin-top: 8.49em;
   }
 }
 

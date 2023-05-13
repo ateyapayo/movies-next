@@ -43,9 +43,13 @@ export default function DetailModule({ res }) {
         )}
 
         <h2 className="text-4xl">{res?.title || res?.name}</h2>
-        <h1 className="text-lg">
-          {res?.last_episode_to_air ? "TV Show" : "Movie"}
-        </h1>
+
+        <div className="flex">
+          {res?.genres?.map((item) => (
+            <h1 className="text-lg">{item?.name}</h1>
+          ))}
+        </div>
+
         <h1 className="text-lg">
           {res?.release_date ||
             (res?.first_air_date
