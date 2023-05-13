@@ -68,6 +68,7 @@ p,
 }
 
 input {
+  touch-action: manipulation;
   background-color: transparent;
   width: 100%;
   padding: 0.6em;
