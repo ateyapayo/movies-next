@@ -409,8 +409,7 @@ input:focus {
   }
 
   .no-results {
-    margin-top: 7em;
-    height: 40vh;
+    height: 35vh;
   }
 }
 
