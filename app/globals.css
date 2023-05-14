@@ -185,6 +185,23 @@ input:focus {
   text-decoration-thickness: 0.06rem;
 }
 
+.single-genre {
+  margin-left: 0.2em;
+}
+
+.single-genre:first-child {
+  margin-left: 0;
+}
+
+.single-genre::after {
+  margin-left: 0.2em;
+  content: "/";
+}
+
+.single-genre:last-child::after {
+  content: none;
+}
+
 .star {
   display: flex;
   align-self: center;

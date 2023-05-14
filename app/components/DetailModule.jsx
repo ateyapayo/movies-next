@@ -44,11 +44,9 @@ export default function DetailModule({ res }) {
 
         <h2 className="text-4xl">{res?.title || res?.name}</h2>
 
-        <div className="flex">
-          {res?.genres?.map((item) => (
-            <h1 className="text-lg">{item?.name}</h1>
-          ))}
-        </div>
+        <h1 className="text-lg">
+          {res?.last_episode_to_air ? "TV Show" : "Movie"}
+        </h1>
 
         <h1 className="text-lg">
           {res?.release_date ||
@@ -93,7 +91,17 @@ export default function DetailModule({ res }) {
           title={res?.title}
         />
       </div>
-      <div className="mt-4">
+      <div>
+        <div className="flex mb-7">
+          <h1 className="text-md mr-1">
+            <em>Genre:</em>
+          </h1>
+          {res?.genres?.map((item) => (
+            <h1 className="text-md single-genre">
+              <em>{item?.name}</em>
+            </h1>
+          ))}
+        </div>
         <h2 className="text-2xl mb-2 title-desc">Description:</h2>
         <p className="text-lg desc">{res?.overview}</p>
       </div>
