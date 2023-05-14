@@ -10,6 +10,7 @@ import StarEmpty from "./StarEmpty";
 import ImageDetail from "./ImageDetail";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 import { useSearchContext } from "@/context/SearchContext";
 
 export default function DetailModule({ res }) {
@@ -98,25 +99,39 @@ export default function DetailModule({ res }) {
       </div>
       <div>
         <div className="flex mb-1">
-          <h1 className="text-md genre-line mr-1">
+          <h1 className="text-md info-line mr-1">
             <b>Genre:</b>
           </h1>
           {res?.genres?.map((item) => (
-            <h1 className="text-md single-genre genre-line">{item?.name}</h1>
+            <h1 className="text-md single-genre info-line">{item?.name}</h1>
           ))}
         </div>
-        {res?.homepage && (
+
+        {res?.tagline && (
           <div className="flex">
-            <h1>
-              <b>Link:</b>
+            <h1 className="text-md info-line">
+              <b>Mood:</b>
             </h1>{" "}
-            <Link target="_BLANK" href={res?.homepage}>
-              <h1 className="ml-2 watch-link">{res?.homepage}</h1>
-            </Link>
+            <h1 className="ml-2 info-line">
+              <em>{"'" + res?.tagline + "'"}</em>
+            </h1>
           </div>
         )}
-        <h2 className="text-2xl mt-7 mb-2 title-desc">Description:</h2>
+
+        <h2 className="text-2xl mt-10 mb-2 title-desc">Description:</h2>
         <p className="text-lg desc">{res?.overview}</p>
+        <div className="flex mt-7">
+          {res?.homepage && (
+            <div className="flex mt-4">
+              <h1 className="text-md info-line">
+                <b>Link:</b>
+              </h1>{" "}
+              <Link target="_BLANK" href={res?.homepage}>
+                <h1 className="ml-2 watch-link info-line">{res?.homepage}</h1>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
