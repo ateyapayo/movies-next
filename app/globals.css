@@ -93,7 +93,35 @@ input:focus {
   cursor: pointer;
 }
 
+.logo-mobile {
+  display: none;
+}
+
+.logo-desktop {
+  display: block;
+}
+
+.next-link-mobile {
+  display: none;
+}
+
 @media screen and (max-width: 485px) {
+  .next-link-mobile {
+    width: 102px;
+    display: block;
+  }
+  .logo-mobile {
+    margin-top: 0px;
+    display: flex;
+    align-self: center;
+    width: 102px;
+    height: 28.95px;
+  }
+
+  .logo-desktop {
+    display: none;
+  }
+
   .search-container {
     width: 100%;
   }
@@ -104,6 +132,15 @@ input:focus {
 }
 
 @media screen and (max-width: 450px) {
+  .next-link-mobile {
+    margin-top: 1px;
+  }
+
+  .logo-mobile {
+    margin-top: 0px;
+    align-self: flex-start;
+  }
+
   .navbar-container {
     margin: 0 auto;
     flex-direction: column;
@@ -323,6 +360,11 @@ input:focus {
     margin-top: -3.77em;
     margin-bottom: 2em;
   }
+
+  .results-text h1 {
+    font-size: 13.5px;
+  }
+
   .no-results {
     height: 32vh;
   }

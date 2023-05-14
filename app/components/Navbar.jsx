@@ -31,7 +31,7 @@ export default function Navbar({}) {
       >
         <div className="container navbar-container">
           <div
-            className="link-logo mr-10 pointer"
+            className="link-logo logo-desktop mr-10 pointer"
             onClick={
               pathname.startsWith("/tv") || pathname.startsWith("/movie")
                 ? () => router.back()
@@ -45,6 +45,30 @@ export default function Navbar({}) {
               src={NetflixLogo}
             />
           </div>
+
+          {pathname == "/" ? (
+            <div
+              className="link-logo next-link-mobile mr-10 pointer"
+              onClick={scrollToTop}
+            >
+              <Image
+                onClick={reset}
+                className="logo"
+                width="100"
+                src={NetflixLogo}
+              />
+            </div>
+          ) : (
+            <Link className="logo-mobile" href="/">
+              <Image
+                onClick={reset}
+                className="logo"
+                width="100"
+                src={NetflixLogo}
+              />
+            </Link>
+          )}
+
           {pathname == "/" && <Search />}
         </div>
       </div>
