@@ -194,7 +194,7 @@ input:focus {
 }
 
 .single-genre::after {
-  margin-left: 0.2em;
+  margin-left: 0.4em;
   content: "/";
 }
 

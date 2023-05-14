@@ -49,10 +49,13 @@ export default function DetailModule({ res }) {
         </h1>
 
         <h1 className="text-lg">
-          {res?.release_date ||
-            (res?.first_air_date
-              ? "First air date: " + res?.first_air_date
-              : "")}
+          {res?.release_date && new Date(res?.release_date).getFullYear()}
+          {res?.first_air_date &&
+            new Date(res?.first_air_date).getFullYear() +
+              " - " +
+              (res?.status.toLowerCase() != "returning series"
+                ? new Date(res?.last_air_date).getFullYear()
+                : "Present")}
         </h1>
         <h2>
           {res?.runtime
@@ -94,7 +97,9 @@ export default function DetailModule({ res }) {
       <div>
         <div className="flex mb-7">
           <h1 className="text-md genre-line mr-1">
-            <em>Genre:</em>
+            <em>
+              <b>Genre:</b>
+            </em>
           </h1>
           {res?.genres?.map((item) => (
             <h1 className="text-md single-genre genre-line">
