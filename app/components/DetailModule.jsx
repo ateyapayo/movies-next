@@ -108,7 +108,7 @@ export default function DetailModule({ res }) {
         </div>
 
         {res?.tagline && (
-          <div className="flex">
+          <div className="flex mb-1">
             <h1 className="text-md info-line">
               <b>Mood:</b>
             </h1>{" "}
@@ -118,20 +118,21 @@ export default function DetailModule({ res }) {
           </div>
         )}
 
-        <h2 className="text-2xl mt-10 mb-2 title-desc">Description:</h2>
-        <p className="text-lg desc">{res?.overview}</p>
-        <div className="flex mt-7">
+        <div className="flex">
           {res?.homepage && (
-            <div className="flex mt-4">
+            <div className="flex">
               <h1 className="text-md info-line">
                 <b>Link:</b>
               </h1>{" "}
               <Link target="_BLANK" href={res?.homepage}>
-                <h1 className="ml-2 watch-link info-line">{res?.homepage}</h1>
+                <h1 className="ml-2 info-line watch-link">{res?.homepage}</h1>
               </Link>
             </div>
           )}
         </div>
+
+        <h2 className="text-2xl mt-10 mb-2 title-desc">Description:</h2>
+        <p className="text-lg desc">{res?.overview}</p>
       </div>
     </div>
   );

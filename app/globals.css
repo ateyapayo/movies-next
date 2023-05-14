@@ -295,6 +295,10 @@ input:focus {
 }
 
 @media screen and (max-width: 500px) {
+  .link-line {
+    font-size: 11px;
+  }
+
   .info-line {
     font-size: 12px;
   }
@@ -405,6 +409,7 @@ input:focus {
   }
 
   .no-results {
+    margin-top: 7em;
     height: 40vh;
   }
 }
