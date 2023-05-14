@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 
 import StarFull from "./StarFull";
@@ -95,19 +97,25 @@ export default function DetailModule({ res }) {
         />
       </div>
       <div>
-        <div className="flex mb-7">
+        <div className="flex mb-1">
           <h1 className="text-md genre-line mr-1">
-            <em>
-              <b>Genre:</b>
-            </em>
+            <b>Genre:</b>
           </h1>
           {res?.genres?.map((item) => (
-            <h1 className="text-md single-genre genre-line">
-              <em>{item?.name}</em>
-            </h1>
+            <h1 className="text-md single-genre genre-line">{item?.name}</h1>
           ))}
         </div>
-        <h2 className="text-2xl mb-2 title-desc">Description:</h2>
+        {res?.homepage && (
+          <div className="flex">
+            <h1>
+              <b>Link:</b>
+            </h1>{" "}
+            <Link target="_BLANK" href={res?.homepage}>
+              <h1 className="ml-2 watch-link">{res?.homepage}</h1>
+            </Link>
+          </div>
+        )}
+        <h2 className="text-2xl mt-7 mb-2 title-desc">Description:</h2>
         <p className="text-lg desc">{res?.overview}</p>
       </div>
     </div>

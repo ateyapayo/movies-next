@@ -186,7 +186,7 @@ input:focus {
 }
 
 .single-genre {
-  margin-left: 0.2em;
+  margin-left: 0.3em;
 }
 
 .single-genre:first-child {
@@ -194,12 +194,16 @@ input:focus {
 }
 
 .single-genre::after {
-  margin-left: 0.4em;
+  margin-left: 0.3em;
   content: "/";
 }
 
 .single-genre:last-child::after {
   content: none;
+}
+
+.watch-link:hover {
+  text-decoration: underline;
 }
 
 .star {
@@ -293,6 +297,12 @@ input:focus {
 @media screen and (max-width: 500px) {
   .genre-line {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .genre-line {
+    font-size: 11px;
   }
 }
 
