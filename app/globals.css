@@ -284,6 +284,18 @@ input:focus {
   }
 }
 
+@media screen and (max-width: 650px) {
+  .genre-line {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .genre-line {
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 440px) {
   .rating-text {
     font-size: 12px;

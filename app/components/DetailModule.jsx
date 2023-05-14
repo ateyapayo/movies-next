@@ -93,11 +93,11 @@ export default function DetailModule({ res }) {
       </div>
       <div>
         <div className="flex mb-7">
-          <h1 className="text-md mr-1">
+          <h1 className="text-md genre-line mr-1">
             <em>Genre:</em>
           </h1>
           {res?.genres?.map((item) => (
-            <h1 className="text-md single-genre">
+            <h1 className="text-md single-genre genre-line">
               <em>{item?.name}</em>
             </h1>
           ))}
