@@ -55,8 +55,8 @@ export default function HomeContent({ content }) {
         >
           {resultsText ? (
             <div className="results-text">
-              <h1 className="title">Results found:</h1>
-              <h1 className="result">{filteredResults?.length}</h1>
+              <h1 className="text-white title">Results found:</h1>
+              <h1 className="text-white result">{filteredResults?.length}</h1>
             </div>
           ) : (
             <></>
@@ -79,7 +79,7 @@ export default function HomeContent({ content }) {
       </div>
       {context?.keyword?.getter && filteredResults?.length === 0 && (
         <div className="no-results">
-          <h1>
+          <h1 className="text-white">
             Your search for "{searchedWord}" did not have any matches.
             <br />
             Try with a different title.

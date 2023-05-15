@@ -24,17 +24,17 @@ export default function Movie({
   return (
     <>
       <div>
-        <p className="inline-block my-2 py-1 px-2 rounded-lg genre">
+        <p className="text-white inline-block my-2 py-1 px-2 rounded-lg genre">
           {media_type === "tv" ? "TV Show" : "Movie"}
         </p>
         <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
-          <h1>{title}</h1>
+          <h1 className="text-white">{title}</h1>
         </Link>
         <div className="flex mb-1 rating">
           <span title="Popularity score">
             <PopularIcon className="star-card mr-5 " />
           </span>
-          <h2 className="vote">{Math.round(popularity)}</h2>
+          <h2 className="text-white vote">{Math.round(popularity)}</h2>
         </div>
 
         <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>

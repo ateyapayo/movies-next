@@ -45,13 +45,13 @@ export default function DetailModule({ res }) {
           </div>
         )}
 
-        <h2 className="text-4xl">{res?.title || res?.name}</h2>
+        <h2 className="text-white text-4xl">{res?.title || res?.name}</h2>
 
-        <h1 className="text-lg">
+        <h1 className="text-white text-lg">
           {res?.last_episode_to_air ? "TV Show" : "Movie"}
         </h1>
 
-        <h1 className="text-lg">
+        <h1 className="text-white text-lg">
           {res?.release_date && new Date(res?.release_date).getFullYear()}
           {res?.first_air_date &&
             new Date(res?.first_air_date).getFullYear() +
@@ -60,7 +60,7 @@ export default function DetailModule({ res }) {
                 ? new Date(res?.last_air_date).getFullYear()
                 : "Present")}
         </h1>
-        <h2>
+        <h2 className="text-white">
           {res?.runtime
             ? `Runtime: ${res?.runtime}`
             : `Episodes length: ${res?.last_episode_to_air?.runtime}`}{" "}
@@ -69,7 +69,7 @@ export default function DetailModule({ res }) {
         <div className="flex justify-between badges mt-2">
           <div className="status">
             <h2
-              className={`inline-block py-2 px-4 rounded-lg text-sm ${
+              className={`inline-block text-white py-2 px-4 rounded-lg text-sm ${
                 res?.status === "Returning Series" && "bg-green-600"
               } ${
                 (res?.status === "Ended" || res?.status === "Released") &&
@@ -85,7 +85,7 @@ export default function DetailModule({ res }) {
               {emptyStars}
             </div>
 
-            <h2 className="rating-text pt-3">
+            <h2 className="text-white rating-text pt-3">
               {res?.vote_count?.toLocaleString()} ratings with an average of{" "}
               {(res?.vote_average / 2).toFixed(2)} out of 5 stars.
             </h2>
@@ -99,20 +99,22 @@ export default function DetailModule({ res }) {
       </div>
       <div>
         <div className="flex mb-1">
-          <h1 className="text-md info-line mr-1">
+          <h1 className="text-white text-md info-line mr-1">
             <b>Genre:</b>
           </h1>
           {res?.genres?.map((item) => (
-            <h1 className="text-md single-genre info-line">{item?.name}</h1>
+            <h1 className="text-white text-md single-genre info-line">
+              {item?.name}
+            </h1>
           ))}
         </div>
 
         {res?.tagline && (
           <div className="flex mb-1">
-            <h1 className="text-md info-line">
-              <b>Mood:</b>
+            <h1 className="text-white text-md info-line">
+              <b>Motif:</b>
             </h1>{" "}
-            <h1 className="ml-2 info-line">
+            <h1 className="text-white ml-2 info-line">
               <em>{"'" + res?.tagline + "'"}</em>
             </h1>
           </div>
@@ -121,18 +123,22 @@ export default function DetailModule({ res }) {
         <div className="flex">
           {res?.homepage && (
             <div className="flex">
-              <h1 className="text-md info-line">
-                <b>Link:</b>
+              <h1 className="text-white text-md info-line">
+                <b>View:</b>
               </h1>{" "}
               <Link target="_BLANK" href={res?.homepage}>
-                <h1 className="ml-2 info-line watch-link">{res?.homepage}</h1>
+                <h1 className="text-white ml-2 info-line watch-link">
+                  {res?.homepage}
+                </h1>
               </Link>
             </div>
           )}
         </div>
 
-        <h2 className="text-2xl mt-10 mb-2 title-desc">Description:</h2>
-        <p className="text-lg desc">{res?.overview}</p>
+        <h2 className="text-white text-2xl mt-10 mb-2 title-desc">
+          Description:
+        </h2>
+        <p className="text-white text-lg desc">{res?.overview}</p>
       </div>
     </div>
   );

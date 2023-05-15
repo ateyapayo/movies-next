@@ -13,7 +13,7 @@ export default function Custom404() {
     <div className="not-exist">
       <div className="content-404">
         <div className="top-404">
-          <h2>Lost your way?</h2>
+          <h2 className="text-white">Lost your way?</h2>
           <h3>
             Sorry we can't find that page. You'll find lots to explore on the
             home page.

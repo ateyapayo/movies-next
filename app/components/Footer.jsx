@@ -10,8 +10,11 @@ export default function Footer({}) {
       {!context?.custom404?.errorPage && (
         <footer>
           <div className="container">
-            <p>A React & NextJS 13 PWA - developed by Andrea Piano.</p> <br />
-            <p className="ending">
+            <p className="text-white">
+              A React & NextJS 13 PWA - developed by Andrea Piano.
+            </p>{" "}
+            <br />
+            <p className="text-white ending">
               I don't own the rights to Netflix. <br />I just love movies,
               programming and programming about movies.
             </p>

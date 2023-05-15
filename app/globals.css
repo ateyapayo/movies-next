@@ -3,16 +3,7 @@
 @tailwind utilities;
 
 body {
-  margin: 0 auto;
   background-color: #141414;
-}
-
-/* TYPOGRAPHY */
-h1,
-h2,
-p,
-.star {
-  color: white;
 }
 
 /* EXTRA  */
