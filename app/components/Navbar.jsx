@@ -24,32 +24,35 @@ export default function Navbar({}) {
   };
   return (
     <>
-      <div
-        className={`flex navbar navbar-scrolled ${
-          pathname == "/" ? "home-navbar" : ""
-        }`}
-      >
-        <div className="container navbar-container">
-          <div
-            className="link-logo logo-desktop mr-10 pointer"
-            onClick={
-              pathname.startsWith("/tv") || pathname.startsWith("/movie")
-                ? () => router.back()
-                : scrollToTop
-            }
-          >
-            <Image
-              onClick={reset}
-              className="logo"
-              width="100"
-              src={NetflixLogo}
-            />
+      {context?.custom404?.errorPage ? (
+        <div className="flex navbar navbar-scrolled">
+          <div className="container navbar-container">
+            <div className="link-logo mr-10 pointer">
+              <Link href="/">
+                <Image
+                  onClick={reset}
+                  className="logo"
+                  width="100"
+                  src={NetflixLogo}
+                />
+              </Link>
+            </div>
           </div>
-
-          {pathname == "/" ? (
+        </div>
+      ) : (
+        <div
+          className={`flex navbar navbar-scrolled ${
+            pathname == "/" ? "home-navbar" : ""
+          }`}
+        >
+          <div className="container navbar-container">
             <div
-              className="link-logo next-link-mobile mr-10 pointer"
-              onClick={scrollToTop}
+              className="link-logo logo-desktop mr-10 pointer"
+              onClick={
+                pathname.startsWith("/tv") || pathname.startsWith("/movie")
+                  ? () => router.back()
+                  : scrollToTop
+              }
             >
               <Image
                 onClick={reset}
@@ -58,20 +61,34 @@ export default function Navbar({}) {
                 src={NetflixLogo}
               />
             </div>
-          ) : (
-            <Link className="logo-mobile" href="/">
-              <Image
-                onClick={reset}
-                className="logo"
-                width="100"
-                src={NetflixLogo}
-              />
-            </Link>
-          )}
 
-          {pathname == "/" && <Search />}
+            {pathname == "/" ? (
+              <div
+                className="link-logo next-link-mobile mr-10 pointer"
+                onClick={scrollToTop}
+              >
+                <Image
+                  onClick={reset}
+                  className="logo"
+                  width="100"
+                  src={NetflixLogo}
+                />
+              </div>
+            ) : (
+              <Link className="logo-mobile" href="/">
+                <Image
+                  onClick={reset}
+                  className="logo"
+                  width="100"
+                  src={NetflixLogo}
+                />
+              </Link>
+            )}
+
+            {pathname == "/" && <Search />}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
