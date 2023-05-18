@@ -13,7 +13,7 @@ const Intro = () => {
     } else {
       setTimeout(() => {
         router.push("/browse");
-      }, 3600);
+      }, 3800);
     }
   } else {
     console.log("You are on the server");
