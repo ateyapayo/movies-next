@@ -55,8 +55,6 @@ body {
 }
 
 input {
-  touch-action: manipulation;
-  background-color: transparent;
   width: 100%;
   padding: 0.6em;
   font-size: 13px;
@@ -67,16 +65,8 @@ input:focus {
   outline: none;
 }
 
-.search-icon,
-.close-icon {
-  align-self: center;
-  font-size: 25px;
-  color: white;
-}
-
 .close-icon {
   margin-left: 5px;
-  cursor: pointer;
 }
 
 .logo-mobile {

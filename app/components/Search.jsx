@@ -14,8 +14,9 @@ export default function Search({}) {
   return (
     <div className="search-section">
       <div className="bg-transparent search-container">
-        <SearchOutlinedIcon className="search-icon" />
+        <SearchOutlinedIcon className="text-color text-white self-center" />
         <input
+          className="bg-transparent"
           value={context?.keyword?.getter}
           onTouchStart={handleTouchStart}
           onChange={(e) => {
@@ -26,7 +27,7 @@ export default function Search({}) {
         />
         {context?.keyword?.getter?.length > 0 && (
           <CloseSharpIcon
-            className="close-icon"
+            className="text-white self-center text-2xl cursor-pointer close-icon"
             onClick={() => context?.keyword?.setter("")}
           />
         )}
