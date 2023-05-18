@@ -148,7 +148,7 @@ export default function DetailModule({ res }) {
           {res?.homepage && (
             <div className="flex">
               <h1 className="text-white text-md info-line">
-                <b>View:</b>
+                <b>Visit:</b>
               </h1>{" "}
               <Link target="_BLANK" href={res?.homepage}>
                 <h1 className="text-white ml-2 info-line watch-link">
