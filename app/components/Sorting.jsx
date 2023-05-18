@@ -133,7 +133,7 @@ export default function Sorting({ content, setContent }) {
           >
             <Menu.Items className="menu-items absolute right-0 w-44 mt-2 origin-top-right shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-white-800">
               <div className="py-1">
-                <Menu.Item className="pointer" onClick={orderByPopularity}>
+                <Menu.Item className="cursor-pointer" onClick={orderByPopularity}>
                   {({ active }) => (
                     <a
                       className={classNames(
@@ -149,7 +149,7 @@ export default function Sorting({ content, setContent }) {
                     </a>
                   )}
                 </Menu.Item>
-                <Menu.Item className="pointer" onClick={orderByDate}>
+                <Menu.Item className="cursor-pointer" onClick={orderByDate}>
                   {({ active }) => (
                     <a
                       className={classNames(
@@ -163,7 +163,7 @@ export default function Sorting({ content, setContent }) {
                     </a>
                   )}
                 </Menu.Item>
-                <Menu.Item className="pointer" onClick={orderByAlphabet}>
+                <Menu.Item className="cursor-pointer" onClick={orderByAlphabet}>
                   {({ active }) => (
                     <a
                       className={classNames(

@@ -6,11 +6,6 @@ body {
   background-color: #141414;
 }
 
-/* EXTRA  */
-.pointer {
-  cursor: pointer;
-}
-
 /* CONTAINER  */
 .container {
   margin: 0 auto;

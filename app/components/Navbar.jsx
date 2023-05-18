@@ -27,7 +27,7 @@ export default function Navbar({}) {
       {context?.custom404?.errorPage ? (
         <div className="flex navbar navbar-scrolled">
           <div className="container navbar-container">
-            <div className="link-logo mr-10 pointer">
+            <div className="link-logo mr-10 cursor-pointer">
               <Link href="/">
                 <Image
                   onClick={reset}
@@ -47,7 +47,7 @@ export default function Navbar({}) {
         >
           <div className="container navbar-container">
             <div
-              className="link-logo logo-desktop mr-10 pointer"
+              className="link-logo logo-desktop mr-10 cursor-pointer"
               onClick={
                 pathname.startsWith("/tv") || pathname.startsWith("/movie")
                   ? () => router.back()
@@ -64,7 +64,7 @@ export default function Navbar({}) {
 
             {pathname == "/" ? (
               <div
-                className="link-logo next-link-mobile mr-10 pointer"
+                className="link-logo next-link-mobile mr-10 cursor-pointer"
                 onClick={scrollToTop}
               >
                 <Image
