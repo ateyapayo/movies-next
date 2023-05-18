@@ -29,11 +29,7 @@ export default function Movie({
         <p className="text-white inline-block my-2 py-1 px-2 rounded-lg genre">
           {media_type === "tv" ? "TV Show" : "Movie"}
         </p>
-        <Link
-          href={
-            media_type === "movie" ? `/browse/movie/${id}` : `/browse/tv/${id}`
-          }
-        >
+        <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
           <h1 className="text-white">{title}</h1>
         </Link>
         <div className="flex mb-1 rating">
@@ -48,11 +44,7 @@ export default function Movie({
           <h2 className="text-white vote">{Math.round(popularity)}</h2>
         </div>
 
-        <Link
-          href={
-            media_type === "movie" ? `/browse/movie/${id}` : `/browse/tv/${id}`
-          }
-        >
+        <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
           <div>
             <div className="relative overflow-hidden lg-screen-card">
               {loading && (

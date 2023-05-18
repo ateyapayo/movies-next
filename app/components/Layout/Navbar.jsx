@@ -48,8 +48,7 @@ export default function Navbar({}) {
                 <div
                   className="link-logo logo-desktop mr-10 cursor-pointer"
                   onClick={
-                    pathname.startsWith("/browse/tv") ||
-                    pathname.startsWith("/browse/movie")
+                    pathname.startsWith("/tv") || pathname.startsWith("/movie")
                       ? () => router.back()
                       : scrollToTop
                   }
