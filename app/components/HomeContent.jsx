@@ -9,7 +9,6 @@ import Intro from "./Intro";
 export default function HomeContent({ content }) {
   const context = useSearchContext();
 
-  console.log("THIS IS WINDOW ---> ", window?.innerWidth);
   const [filteredResults, setFilteredResults] = useState(content);
   const [resultsText, setResultsText] = useState(false);
 
@@ -48,16 +47,20 @@ export default function HomeContent({ content }) {
     context?.paging?.custom404?.setErrorPage(false);
   });
 
-  if (window?.innerWidth > 450) {
-    setTimeout(() => {
-      context?.paging?.introNetflix?.setter(false);
-      setShowIntro(false);
-    }, 5000);
+  if (typeof window !== "undefined") {
+    if (window?.innerWidth > 450) {
+      setTimeout(() => {
+        context?.paging?.introNetflix?.setter(false);
+        setShowIntro(false);
+      }, 5000);
+    } else {
+      setTimeout(() => {
+        context?.paging?.introNetflix?.setter(false);
+        setShowIntro(false);
+      }, 3900);
+    }
   } else {
-    setTimeout(() => {
-      context?.paging?.introNetflix?.setter(false);
-      setShowIntro(false);
-    }, 3900);
+    console.log("You are on the server");
   }
 
   return (
