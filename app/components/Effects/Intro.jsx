@@ -9,11 +9,11 @@ const Intro = () => {
     if (window?.innerWidth > 450) {
       setTimeout(() => {
         router.push("/browse");
-      }, 4500);
+      }, 5000);
     } else {
       setTimeout(() => {
         router.push("/browse");
-      }, 3200);
+      }, 3600);
     }
   } else {
     console.log("You are on the server");
