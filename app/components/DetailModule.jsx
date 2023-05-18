@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchContext } from "@/context/SearchContext";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
@@ -18,12 +18,6 @@ export default function DetailModule({ res }) {
   const context = useSearchContext();
 
   const [loading, setLoading] = useState(true);
-
-  const introContext = context?.paging?.introNetflix?.setter;
-
-  useEffect(() => {
-    introContext(false);
-  });
 
   const handleImageLoad = () => {
     setLoading(false);

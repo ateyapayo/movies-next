@@ -33,12 +33,7 @@ export default function Navbar({}) {
               <div className="container navbar-container">
                 <div className="link-logo mr-10 cursor-pointer">
                   <Link href="/browse">
-                    <Image
-                      onClick={reset}
-                      className="logo"
-                      width="100"
-                      src={NetflixLogo}
-                    />
+                    <Image className="logo" width="100" src={NetflixLogo} />
                   </Link>
                 </div>
               </div>
@@ -53,7 +48,8 @@ export default function Navbar({}) {
                 <div
                   className="link-logo logo-desktop mr-10 cursor-pointer"
                   onClick={
-                    pathname.startsWith("/tv") || pathname.startsWith("/movie")
+                    pathname.startsWith("/browse/tv") ||
+                    pathname.startsWith("/browse/movie")
                       ? () => router.back()
                       : scrollToTop
                   }
