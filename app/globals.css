@@ -172,10 +172,6 @@ input:focus {
   content: none;
 }
 
-.watch-link:hover {
-  text-decoration: underline;
-}
-
 .star {
   display: flex;
   align-self: center;
@@ -440,7 +436,6 @@ footer {
 
 footer p {
   font-size: 15px;
-  text-align: center;
 }
 
 .ending {
@@ -449,11 +444,7 @@ footer p {
 
 /* 404 - PAGE NOT FOUND */
 .not-exist {
-  height: 100vh;
   background-image: url("/images/lost.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 .not-exist::before {
@@ -469,19 +460,11 @@ footer p {
 }
 
 .content-404 {
-  margin: 0 auto;
-  position: relative;
   padding-top: 18em;
-  height: 100vh;
   width: 85%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 1;
 }
 
 .content-404 h2 {
-  text-align: center;
   font-weight: 600;
   font-size: 70px;
   letter-spacing: 0.06em;
@@ -489,39 +472,26 @@ footer p {
 }
 
 .content-404 h3 {
-  margin: 0 auto;
   margin-top: 1em;
   width: 55%;
-  text-align: center;
   font-weight: 300;
   font-size: 1.6em;
-  color: white;
   text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .content-404 button {
   padding: 0.75em 1.8em;
   border-radius: 0.4em;
-  background-color: white;
   font-size: 1.1em;
   font-weight: 900;
-  color: black;
 }
 
 .content-404 button:hover {
   opacity: 0.8;
 }
 
-.link-go-home {
-  margin-top: 2em;
-  display: flex;
-  justify-content: center;
-}
-
 .bottom-404 {
   margin-bottom: 1.75em;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .bottom-from,

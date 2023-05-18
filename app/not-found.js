@@ -10,21 +10,21 @@ export default function Custom404() {
   context?.custom404?.setErrorPage(true);
 
   return (
-    <div className="not-exist">
-      <div className="content-404">
+    <div className="h-screen bg-no-repeat bg-cover bg-center not-exist">
+      <div className="mx-auto relative h-screen flex flex-col justify-between z-10 content-404">
         <div className="top-404">
-          <h2 className="text-white">Lost your way?</h2>
-          <h3>
+          <h2 className="text-white text-center">Lost your way?</h2>
+          <h3 className="mx-auto text-center text-white">
             Sorry we can't find that page. You'll find lots to explore on the
             home page.
           </h3>
 
-          <Link className="link-go-home" href="/">
-            <button>NextFlix Home</button>
+          <Link className="mt-8 flex justify-center" href="/">
+            <button className="bg-white text-black">NextFlix Home</button>
           </Link>
         </div>
 
-        <div className="bottom-404">
+        <div className="flex justify-end bottom-404 ">
           <span className="from-404">FROM</span>
           <span className="title-404">INTO THE WILD</span>
         </div>
