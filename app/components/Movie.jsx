@@ -39,7 +39,7 @@ export default function Movie({
 
         <Link href={media_type === "movie" ? `/movie/${id}` : `/tv/${id}`}>
           <div>
-            <div className="div-card lg-screen-card">
+            <div className="relative overflow-hidden lg-screen-card">
               {loading && (
                 <div className="loader-div">
                   <Loader customSize={24} />

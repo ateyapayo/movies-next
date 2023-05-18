@@ -72,7 +72,7 @@ export default function DetailModule({ res }) {
           minutes
         </h2>
         <div className="flex justify-between heading-detail mt-2">
-          <div className="status">
+          <div>
             <h2
               className={`inline-block text-white py-2 px-4 rounded-lg text-sm ${
                 res?.status === "Returning Series" && "bg-green-600"
