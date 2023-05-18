@@ -1,28 +1,33 @@
 "use client";
 
 import Link from "next/link";
-
+import Image from "next/image";
+import { useSearchContext } from "@/context/SearchContext";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
-import ImageDetail from "./ImageDetail";
-
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-import { useSearchContext } from "@/context/SearchContext";
-import { useEffect } from "react";
+import Loader from "./Effects/Loader";
 
 export default function DetailModule({ res }) {
   const router = useRouter();
   const context = useSearchContext();
+
+  const [loading, setLoading] = useState(true);
 
   const introContext = context?.paging?.introNetflix?.setter;
 
   useEffect(() => {
     introContext(false);
   });
+
+  const handleImageLoad = () => {
+    setLoading(false);
+  };
 
   const searchedResult = context?.sharedFilters?.keyword?.getter;
   console.log("THIS IS RES ---> ", res);
@@ -111,10 +116,15 @@ export default function DetailModule({ res }) {
             </h2>
           </div>
         </div>
-        <ImageDetail
-          imagePath={imagePath}
-          backdropPath={res?.backdrop_path}
-          title={res?.title}
+        {loading && <Loader customSize={50} />}
+        <Image
+          className="my-10 w-full"
+          src={imagePath + res?.backdrop_path}
+          alt={res?.title}
+          width={1000}
+          height={1000}
+          priority
+          onLoad={handleImageLoad}
         />
       </div>
       <div>
