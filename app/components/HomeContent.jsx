@@ -52,7 +52,7 @@ export default function HomeContent({ content }) {
       setTimeout(() => {
         context?.paging?.introNetflix?.setter(false);
         setShowIntro(false);
-      }, 5000);
+      }, 5150);
     } else {
       setTimeout(() => {
         context?.paging?.introNetflix?.setter(false);
