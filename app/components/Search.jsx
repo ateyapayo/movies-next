@@ -17,18 +17,18 @@ export default function Search({}) {
         <SearchOutlinedIcon className="text-color text-white self-center" />
         <input
           className="bg-transparent text-white"
-          value={context?.keyword?.getter}
+          value={context?.sharedFilters?.keyword?.getter}
           onTouchStart={handleTouchStart}
           onChange={(e) => {
-            context?.filters?.noSorting();
-            context?.keyword?.setter(e.target.value);
+            context?.sharedFilters?.filters?.noSorting();
+            context?.sharedFilters?.keyword?.setter(e.target.value);
           }}
           placeholder="Title"
         />
-        {context?.keyword?.getter?.length > 0 && (
+        {context?.sharedFilters?.keyword?.getter?.length > 0 && (
           <CloseSharpIcon
             className="text-white self-center text-2xl cursor-pointer close-icon"
-            onClick={() => context?.keyword?.setter("")}
+            onClick={() => context?.sharedFilters?.keyword?.setter("")}
           />
         )}
       </div>

@@ -1,13 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 
 import { useSearchContext } from "@/context/SearchContext";
 
 export default function Custom404() {
   const context = useSearchContext();
 
-  context?.custom404?.setErrorPage(true);
+  const introContext = context?.paging?.introNetflix?.setter;
+
+  context?.paging?.custom404?.setErrorPage(true);
+
+  useEffect(() => {
+    introContext(false);
+  });
 
   return (
     <div className="h-screen bg-no-repeat bg-cover bg-center not-exist">

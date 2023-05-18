@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Movie from "./Movie";
 import Sorting from "./Sorting";
 import { useSearchContext } from "@/context/SearchContext";
+import Intro from "./Intro";
 
 export default function HomeContent({ content }) {
   const context = useSearchContext();
@@ -11,7 +12,10 @@ export default function HomeContent({ content }) {
   const [filteredResults, setFilteredResults] = useState(content);
   const [resultsText, setResultsText] = useState(false);
 
-  const searchedWord = context?.keyword?.getter;
+  const [showIntro, setShowIntro] = useState(true);
+
+  const searchedWord = context?.sharedFilters?.keyword?.getter;
+  const introContext = context?.paging?.introNetflix?.getter;
 
   useEffect(() => {
     if (searchedWord && filteredResults?.length > 0) {
@@ -30,9 +34,9 @@ export default function HomeContent({ content }) {
 
   useEffect(() => {
     if (
-      context?.alphabet?.getter == "" &&
-      context?.popularity?.getter == "" &&
-      context?.date?.getter == "" &&
+      context?.sharedFilters?.alphabet?.getter == "" &&
+      context?.sharedFilters?.popularity?.getter == "" &&
+      context?.sharedFilters?.date?.getter == "" &&
       searchedWord == ""
     ) {
       setFilteredResults(content);
@@ -40,52 +44,66 @@ export default function HomeContent({ content }) {
   });
 
   useEffect(() => {
-    context?.custom404?.setErrorPage(false);
+    context?.paging?.custom404?.setErrorPage(false);
   });
 
-  return (
-    <main className="container">
-      <Sorting setContent={setFilteredResults} content={filteredResults} />
+  setTimeout(() => {
+    context?.paging?.introNetflix?.setter(false);
+    setShowIntro(false);
+  }, 4950);
 
-      {filteredResults.length !== 0 && (
-        <div
-          className={`results-found ${
-            filteredResults.length < 28 && "border"
-          } `}
-        >
-          {resultsText ? (
-            <div className="results-text">
-              <h1 className="text-white title">Results found:</h1>
-              <h1 className="text-white result">{filteredResults?.length}</h1>
+  return (
+    <>
+      {showIntro && introContext ? (
+        <Intro />
+      ) : (
+        <main className="container">
+          <Sorting setContent={setFilteredResults} content={filteredResults} />
+
+          {filteredResults.length !== 0 && (
+            <div
+              className={`results-found ${
+                filteredResults.length < 28 && "border"
+              } `}
+            >
+              {resultsText ? (
+                <div className="results-text">
+                  <h1 className="text-white title">Results found:</h1>
+                  <h1 className="text-white result">
+                    {filteredResults?.length}
+                  </h1>
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
-          ) : (
-            <></>
           )}
-        </div>
+          <div className="grid gap-16 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 cards">
+            {filteredResults?.map((movie) => (
+              <Movie
+                filteredResults={filteredResults}
+                key={movie?.id}
+                id={movie?.id}
+                title={movie?.title || movie?.name}
+                poster_path={movie?.poster_path}
+                media_type={movie?.media_type}
+                vote_average={movie?.vote_average}
+                popularity={movie?.popularity}
+              />
+            ))}
+          </div>
+          {context?.sharedFilters?.keyword?.getter &&
+            filteredResults?.length === 0 && (
+              <div className="no-results">
+                <h1 className="text-white">
+                  Your search for "{searchedWord}" did not have any matches.
+                  <br />
+                  Try with a different title.
+                </h1>
+              </div>
+            )}
+        </main>
       )}
-      <div className="grid gap-16 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 cards">
-        {filteredResults?.map((movie) => (
-          <Movie
-            filteredResults={filteredResults}
-            key={movie?.id}
-            id={movie?.id}
-            title={movie?.title || movie?.name}
-            poster_path={movie?.poster_path}
-            media_type={movie?.media_type}
-            vote_average={movie?.vote_average}
-            popularity={movie?.popularity}
-          />
-        ))}
-      </div>
-      {context?.keyword?.getter && filteredResults?.length === 0 && (
-        <div className="no-results">
-          <h1 className="text-white">
-            Your search for "{searchedWord}" did not have any matches.
-            <br />
-            Try with a different title.
-          </h1>
-        </div>
-      )}
-    </main>
+    </>
   );
 }

@@ -12,12 +12,19 @@ import ImageDetail from "./ImageDetail";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import { useSearchContext } from "@/context/SearchContext";
+import { useEffect } from "react";
 
 export default function DetailModule({ res }) {
   const router = useRouter();
   const context = useSearchContext();
 
-  const searchedResult = context?.keyword?.getter;
+  const introContext = context?.paging?.introNetflix?.setter;
+
+  useEffect(() => {
+    introContext(false);
+  });
+
+  const searchedResult = context?.sharedFilters?.keyword?.getter;
   console.log("THIS IS RES ---> ", res);
   const imagePath = "https://image.tmdb.org/t/p/original";
 

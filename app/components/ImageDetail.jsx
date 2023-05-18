@@ -16,7 +16,7 @@ export default function ImageDetail({ imagePath, backdropPath, title }) {
   };
 
   useEffect(() => {
-    context?.custom404?.setErrorPage(false);
+    context?.paging?.custom404?.setErrorPage(false);
   });
   return (
     <>

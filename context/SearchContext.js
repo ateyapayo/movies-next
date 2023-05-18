@@ -11,6 +11,7 @@ export let SearchWrapper = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState(false);
   const [selectedAZ, setSelectedAZ] = useState(false);
 
+  const [intro, setIntro] = useState(true);
   const [is404, setIs404] = useState(false);
 
   const resetAllFilters = () => {
@@ -65,14 +66,21 @@ export let SearchWrapper = ({ children }) => {
       clear: resetAllFilters,
       noSorting: resetSorting,
     },
+  };
+
+  const paging = {
     custom404: {
       errorPage: is404,
       setErrorPage: setIs404,
     },
+    introNetflix: {
+      getter: intro,
+      setter: setIntro,
+    },
   };
 
   return (
-    <SearchContext.Provider value={sharedFilters}>
+    <SearchContext.Provider value={{ sharedFilters, paging }}>
       {children}
     </SearchContext.Provider>
   );

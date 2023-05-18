@@ -11,21 +11,19 @@ function classNames(...classes) {
 export default function Sorting({ content, setContent }) {
   const context = useSearchContext();
 
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const gettingPopularity = context?.sharedFilters?.popularity?.getter;
+  const settingPopularity = context?.sharedFilters?.popularity?.setter;
+  const gettingAlphabet = context?.sharedFilters?.alphabet?.getter;
+  const settingAlphabet = context?.sharedFilters?.alphabet?.setter;
+  const gettingDate = context?.sharedFilters?.date?.getter;
+  const settingDate = context?.sharedFilters?.date?.setter;
 
-  const gettingPopularity = context?.popularity?.getter;
-  const settingPopularity = context?.popularity?.setter;
-  const gettingAlphabet = context?.alphabet?.getter;
-  const settingAlphabet = context?.alphabet?.setter;
-  const gettingDate = context?.date?.getter;
-  const settingDate = context?.date?.setter;
-
-  const selectedPopularity = context?.selectPopularity?.getter;
-  const selectingPopularity = context?.selectPopularity?.setter;
-  const selectedDate = context?.selectDate?.getter;
-  const selectingDate = context?.selectDate?.setter;
-  const selectedAlphabet = context?.selectAlphabet?.getter;
-  const selectingAlphabet = context?.selectAlphabet?.setter;
+  const selectedPopularity = context?.sharedFilters?.selectPopularity?.getter;
+  const selectingPopularity = context?.sharedFilters?.selectPopularity?.setter;
+  const selectedDate = context?.sharedFilters?.selectDate?.getter;
+  const selectingDate = context?.sharedFilters?.selectDate?.setter;
+  const selectedAlphabet = context?.sharedFilters?.selectAlphabet?.getter;
+  const selectingAlphabet = context?.sharedFilters?.selectAlphabet?.setter;
 
   const orderByPopularity = () => {
     const sortedResults = [...content].sort((a, b) =>
@@ -133,7 +131,10 @@ export default function Sorting({ content, setContent }) {
           >
             <Menu.Items className="menu-items absolute right-0 w-44 mt-2 origin-top-right shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-white-800">
               <div className="py-1">
-                <Menu.Item className="cursor-pointer" onClick={orderByPopularity}>
+                <Menu.Item
+                  className="cursor-pointer"
+                  onClick={orderByPopularity}
+                >
                   {({ active }) => (
                     <a
                       className={classNames(
