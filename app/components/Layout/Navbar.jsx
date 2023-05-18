@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-import NetflixLogo from "../../public/logo.png";
-import { useSearchContext } from "../../context/SearchContext";
+import NetflixLogo from "../../../public/logo.png";
+import { useSearchContext } from "../../../context/SearchContext";
 
-import Search from "./Search";
+import Search from "../Filters/Search";
 import { useRouter } from "next/navigation";
 
 export default function Navbar({}) {

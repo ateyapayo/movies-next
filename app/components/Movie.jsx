@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import PopularIcon from "./Trend";
+
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+
 import { useState } from "react";
-import Loader from "./Loader";
+import Loader from "./Effects/Loader";
 
 export default function Movie({
   title,
@@ -32,7 +34,12 @@ export default function Movie({
         </Link>
         <div className="flex mb-1 rating">
           <span title="Popularity score">
-            <PopularIcon className="star-card mr-5 " />
+            <div className="star-card mr-2 ">
+              <TrendingUpIcon
+                alt="Popular score"
+                className="text-white trend"
+              />
+            </div>
           </span>
           <h2 className="text-white vote">{Math.round(popularity)}</h2>
         </div>

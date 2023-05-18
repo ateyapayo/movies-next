@@ -4,8 +4,8 @@ import Link from "next/link";
 
 import { useRouter } from "next/navigation";
 
-import StarFull from "./StarFull";
-import StarEmpty from "./StarEmpty";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
+import StarRateIcon from "@mui/icons-material/StarRate";
 
 import ImageDetail from "./ImageDetail";
 
@@ -33,13 +33,21 @@ export default function DetailModule({ res }) {
   const fullStars = [];
 
   for (let i = 0; i < vote; i++) {
-    fullStars.push(<StarFull className="rating" key={i} />);
+    fullStars.push(
+      <div className="rating" key={i}>
+        <StarRateIcon className="star" />
+      </div>
+    );
   }
 
   const emptyStars = [];
 
   for (let i = 0; i < 5 - vote; i++) {
-    emptyStars.push(<StarEmpty className="rating" key={i} />);
+    emptyStars.push(
+      <div className="rating" key={i}>
+        <StarOutlineIcon className="star" />
+      </div>
+    );
   }
 
   return (

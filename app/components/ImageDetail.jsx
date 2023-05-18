@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 import { useSearchContext } from "@/context/SearchContext";
 
-import Loader from "./Loader";
+import Loader from "./Effects/Loader";
 
 export default function ImageDetail({ imagePath, backdropPath, title }) {
   const context = useSearchContext();

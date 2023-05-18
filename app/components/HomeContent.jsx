@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Movie from "./Movie";
-import Sorting from "./Sorting";
+import Sorting from "./Filters/Sorting";
 import { useSearchContext } from "@/context/SearchContext";
-import Intro from "./Intro";
+import Intro from "./Effects/Intro";
 
 export default function HomeContent({ content }) {
   const context = useSearchContext();

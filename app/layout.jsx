@@ -3,9 +3,9 @@
 import "./globals.css";
 
 import { Montserrat } from "@next/font/google";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Layout/Navbar";
 import Head from "./head";
-import Footer from "./components/Footer";
+import Footer from "./components/Layout/Footer";
 
 import { SearchWrapper } from "@/context/SearchContext";
 
