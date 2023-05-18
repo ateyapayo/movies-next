@@ -26,7 +26,7 @@ export default function Custom404() {
             home page.
           </h3>
 
-          <Link className="mt-8 flex justify-center" href="/">
+          <Link className="mt-8 flex justify-center" href="/browse">
             <button className="bg-white text-black">NextFlix Home</button>
           </Link>
         </div>

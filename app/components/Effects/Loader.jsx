@@ -8,7 +8,7 @@ export default function Loader({ customSize }) {
   return (
     <div
       className={`flex items-center justify-center h-screen ${
-        pathname == "/" ? "loader-card" : "loader-detail"
+        pathname == "/browse" ? "loader-card" : "loader-detail"
       }`}
     >
       <ClipLoader color="#E50914" size={customSize} />

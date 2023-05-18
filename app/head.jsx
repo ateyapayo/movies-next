@@ -9,7 +9,7 @@ export default function Head() {
   const [title, setTitle] = useState("");
 
   useEffect(() => {
-    if (pathname == "/") {
+    if (pathname == "/browse") {
       setTitle("Home - NextFlix UK");
     } else if (pathname == "/about") {
       setTitle("About");

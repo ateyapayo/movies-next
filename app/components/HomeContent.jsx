@@ -9,10 +9,10 @@ import Intro from "./Effects/Intro";
 export default function HomeContent({ content }) {
   const context = useSearchContext();
 
+  console.log("THIS IS CONTEXT ---> ", context);
+
   const [filteredResults, setFilteredResults] = useState(content);
   const [resultsText, setResultsText] = useState(false);
-
-  const [showIntro, setShowIntro] = useState(true);
 
   const searchedWord = context?.sharedFilters?.keyword?.getter;
   const introContext = context?.paging?.introNetflix?.getter;
@@ -47,74 +47,52 @@ export default function HomeContent({ content }) {
     context?.paging?.custom404?.setErrorPage(false);
   });
 
-  if (typeof window !== "undefined") {
-    if (window?.innerWidth > 450) {
-      setTimeout(() => {
-        context?.paging?.introNetflix?.setter(false);
-        setShowIntro(false);
-      }, 5150);
-    } else {
-      setTimeout(() => {
-        context?.paging?.introNetflix?.setter(false);
-        setShowIntro(false);
-      }, 3900);
-    }
-  } else {
-    console.log("You are on the server");
-  }
-
   return (
     <>
-      {showIntro && introContext ? (
-        <Intro />
-      ) : (
-        <main className="container">
-          <Sorting setContent={setFilteredResults} content={filteredResults} />
+      <main className="container">
+        <Sorting setContent={setFilteredResults} content={filteredResults} />
 
-          {filteredResults.length !== 0 && (
-            <div
-              className={`results-found ${
-                filteredResults.length < 28 && "border"
-              } `}
-            >
-              {resultsText ? (
-                <div className="results-text">
-                  <h1 className="text-white title">Results found:</h1>
-                  <h1 className="text-white result">
-                    {filteredResults?.length}
-                  </h1>
-                </div>
-              ) : (
-                <></>
-              )}
+        {filteredResults.length !== 0 && (
+          <div
+            className={`results-found ${
+              filteredResults.length < 28 && "border"
+            } `}
+          >
+            {resultsText ? (
+              <div className="results-text">
+                <h1 className="text-white title">Results found:</h1>
+                <h1 className="text-white result">{filteredResults?.length}</h1>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+        )}
+        <div className="grid gap-16 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 cards">
+          {filteredResults?.map((movie) => (
+            <Movie
+              filteredResults={filteredResults}
+              key={movie?.id}
+              id={movie?.id}
+              title={movie?.title || movie?.name}
+              poster_path={movie?.poster_path}
+              media_type={movie?.media_type}
+              vote_average={movie?.vote_average}
+              popularity={movie?.popularity}
+            />
+          ))}
+        </div>
+        {context?.sharedFilters?.keyword?.getter &&
+          filteredResults?.length === 0 && (
+            <div className="no-results">
+              <h1 className="text-white">
+                Your search for "{searchedWord}" did not have any matches.
+                <br />
+                Try with a different title.
+              </h1>
             </div>
           )}
-          <div className="grid gap-16 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 cards">
-            {filteredResults?.map((movie) => (
-              <Movie
-                filteredResults={filteredResults}
-                key={movie?.id}
-                id={movie?.id}
-                title={movie?.title || movie?.name}
-                poster_path={movie?.poster_path}
-                media_type={movie?.media_type}
-                vote_average={movie?.vote_average}
-                popularity={movie?.popularity}
-              />
-            ))}
-          </div>
-          {context?.sharedFilters?.keyword?.getter &&
-            filteredResults?.length === 0 && (
-              <div className="no-results">
-                <h1 className="text-white">
-                  Your search for "{searchedWord}" did not have any matches.
-                  <br />
-                  Try with a different title.
-                </h1>
-              </div>
-            )}
-        </main>
-      )}
+      </main>
     </>
   );
 }

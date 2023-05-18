@@ -26,14 +26,13 @@ export default function Navbar({}) {
 
   return (
     <>
-      {!introContext && (
+      {pathname != "/" && (
         <>
-          {" "}
           {context?.paging?.custom404?.errorPage ? (
             <div className="flex navbar navbar-scrolled">
               <div className="container navbar-container">
                 <div className="link-logo mr-10 cursor-pointer">
-                  <Link href="/">
+                  <Link href="/browse">
                     <Image
                       onClick={reset}
                       className="logo"
@@ -47,7 +46,7 @@ export default function Navbar({}) {
           ) : (
             <div
               className={`flex navbar navbar-scrolled ${
-                pathname == "/" ? "home-navbar" : ""
+                pathname == "/browse" ? "home-navbar" : ""
               }`}
             >
               <div className="container navbar-container">
@@ -67,7 +66,7 @@ export default function Navbar({}) {
                   />
                 </div>
 
-                {pathname == "/" ? (
+                {pathname == "/browse" ? (
                   <div
                     className="link-logo next-link-mobile mr-10 cursor-pointer"
                     onClick={scrollToTop}
@@ -80,7 +79,7 @@ export default function Navbar({}) {
                     />
                   </div>
                 ) : (
-                  <Link className="logo-mobile" href="/">
+                  <Link className="logo-mobile" href="/browse">
                     <Image
                       onClick={reset}
                       className="logo"
@@ -90,7 +89,7 @@ export default function Navbar({}) {
                   </Link>
                 )}
 
-                {pathname == "/" && <Search />}
+                {pathname == "/browse" && <Search />}
               </div>
             </div>
           )}

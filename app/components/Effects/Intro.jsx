@@ -1,4 +1,25 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 const Intro = () => {
+  const router = useRouter();
+
+  console.log("THIS IS ROUTER ---> ", router);
+
+  if (typeof window !== "undefined") {
+    if (window?.innerWidth > 450) {
+      setTimeout(() => {
+        router.push("/browse");
+      }, 3750);
+    } else {
+      setTimeout(() => {
+        router.push("/browse");
+      }, 2850);
+    }
+  } else {
+    console.log("You are on the server");
+  }
   return (
     <div id="container">
       <netflixintro letter="N">
