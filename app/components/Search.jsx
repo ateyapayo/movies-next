@@ -16,7 +16,7 @@ export default function Search({}) {
       <div className="bg-transparent search-container">
         <SearchOutlinedIcon className="text-color text-white self-center" />
         <input
-          className="bg-transparent"
+          className="bg-transparent text-white"
           value={context?.keyword?.getter}
           onTouchStart={handleTouchStart}
           onChange={(e) => {

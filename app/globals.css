@@ -58,7 +58,6 @@ input {
   width: 100%;
   padding: 0.6em;
   font-size: 13px;
-  color: white;
 }
 
 input:focus {
@@ -140,24 +139,19 @@ input:focus {
 .div-back {
   margin-top: -1em;
   margin-bottom: 0.75em;
-  display: flex;
 }
 
 .arrow-back {
   margin-right: 0.2em;
-  align-self: center;
   font-size: 21px;
   color: #e50914;
 }
 
 .text-back {
-  align-self: center;
   font-size: 15px;
-  color: white;
 }
 
 .text-back:hover {
-  text-decoration: underline;
   text-decoration-thickness: 0.06rem;
 }
 
@@ -189,13 +183,9 @@ input:focus {
   color: #e50914;
 }
 
-.badges {
+.heading-detail {
   display: flex;
   align-items: center;
-}
-
-.status {
-  align-self: center;
 }
 
 .big-pop {
@@ -250,7 +240,7 @@ input:focus {
 }
 
 @media screen and (max-width: 820px) {
-  .badges {
+  .heading-detail {
     flex-direction: column;
   }
 
@@ -259,7 +249,7 @@ input:focus {
   }
 
   .status {
-    margin-top: 0.65em;
+    margin-top: 0.66em;
     align-self: start;
   }
 }

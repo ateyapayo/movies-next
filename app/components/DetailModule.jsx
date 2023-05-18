@@ -39,9 +39,14 @@ export default function DetailModule({ res }) {
     <div className="mt-8 container">
       <div className="container-detail">
         {searchedResult && (
-          <div className="div-back cursor-pointer" onClick={() => router.back()}>
-            <ArrowBackIcon className="arrow-back" />
-            <span className="text-back">Go back to the search results</span>
+          <div
+            className="flex div-back cursor-pointer"
+            onClick={() => router.back()}
+          >
+            <ArrowBackIcon className="self-center arrow-back" />
+            <span className="self-center text-white text-back">
+              Go back to the search results
+            </span>
           </div>
         )}
 
@@ -66,7 +71,7 @@ export default function DetailModule({ res }) {
             : `Episodes length: ${res?.last_episode_to_air?.runtime}`}{" "}
           minutes
         </h2>
-        <div className="flex justify-between badges mt-2">
+        <div className="flex justify-between heading-detail mt-2">
           <div className="status">
             <h2
               className={`inline-block text-white py-2 px-4 rounded-lg text-sm ${
