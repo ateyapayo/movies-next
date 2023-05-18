@@ -17,7 +17,7 @@ export default function Head() {
       setTitle("TV Show Detail");
     } else if (pathname.startsWith("/movie")) {
       setTitle("Movie Detail");
-    }
+    } else setTitle("NextFlix UK");
   }, [pathname]);
   return (
     <>

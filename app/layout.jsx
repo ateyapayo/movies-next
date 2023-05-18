@@ -1,6 +1,6 @@
 "use client";
 
-import "./globals.css";
+import "./style.css";
 
 import { Montserrat } from "@next/font/google";
 import Navbar from "./components/Layout/Navbar";

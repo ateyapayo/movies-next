@@ -4,18 +4,14 @@ import { useEffect, useState } from "react";
 import Movie from "./Movie";
 import Sorting from "./Filters/Sorting";
 import { useSearchContext } from "@/context/SearchContext";
-import Intro from "./Effects/Intro";
 
 export default function HomeContent({ content }) {
   const context = useSearchContext();
-
-  console.log("THIS IS CONTEXT ---> ", context);
 
   const [filteredResults, setFilteredResults] = useState(content);
   const [resultsText, setResultsText] = useState(false);
 
   const searchedWord = context?.sharedFilters?.keyword?.getter;
-  const introContext = context?.paging?.introNetflix?.getter;
 
   useEffect(() => {
     if (searchedWord && filteredResults?.length > 0) {

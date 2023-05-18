@@ -5,17 +5,15 @@ import { useRouter } from "next/navigation";
 const Intro = () => {
   const router = useRouter();
 
-  console.log("THIS IS ROUTER ---> ", router);
-
   if (typeof window !== "undefined") {
     if (window?.innerWidth > 450) {
       setTimeout(() => {
         router.push("/browse");
-      }, 3750);
+      }, 4500);
     } else {
       setTimeout(() => {
         router.push("/browse");
-      }, 2850);
+      }, 3200);
     }
   } else {
     console.log("You are on the server");

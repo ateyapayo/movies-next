@@ -1,15 +1,16 @@
 "use client";
 
 import { useSearchContext } from "@/context/SearchContext";
+import { usePathname } from "next/navigation";
 
 export default function Footer({}) {
   const context = useSearchContext();
 
-  const introContext = context?.paging?.introNetflix?.getter;
+  const pathname = usePathname();
 
   return (
     <>
-      {!introContext && (
+      {pathname !== "/" && (
         <>
           {" "}
           {!context?.paging?.custom404?.errorPage && (

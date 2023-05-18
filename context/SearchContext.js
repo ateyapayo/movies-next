@@ -73,10 +73,6 @@ export let SearchWrapper = ({ children }) => {
       errorPage: is404,
       setErrorPage: setIs404,
     },
-    introNetflix: {
-      getter: intro,
-      setter: setIntro,
-    },
   };
 
   return (
