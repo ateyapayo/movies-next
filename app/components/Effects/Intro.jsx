@@ -18,6 +18,7 @@ const Intro = () => {
   } else {
     console.log("You are on the server");
   }
+
   return (
     <div id="container">
       <netflixintro letter="N">
