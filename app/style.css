@@ -184,7 +184,6 @@ input:focus {
 }
 
 .badge {
-  margin-top: 0.3em;
   align-self: start;
 }
 
@@ -242,10 +241,6 @@ input:focus {
 @media screen and (max-width: 820px) {
   .heading-detail {
     flex-direction: column;
-  }
-
-  .badge {
-    margin-top: 0.45em;
   }
 
   .popularity {

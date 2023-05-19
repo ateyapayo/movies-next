@@ -85,7 +85,7 @@ export default function DetailModule({ res }) {
             : `Episodes length: ${res?.last_episode_to_air?.runtime}`}{" "}
           minutes
         </h2>
-        <div className="flex justify-between heading-detail mt-2">
+        <div className="flex justify-between heading-detail mt-3">
           <div className="badge">
             <h2
               className={`inline-block text-white py-2 px-4 rounded-lg text-sm ${
