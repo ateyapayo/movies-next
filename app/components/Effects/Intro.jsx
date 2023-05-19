@@ -1,23 +1,27 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const Intro = () => {
   const router = useRouter();
 
-  if (typeof window !== "undefined") {
-    if (window?.innerWidth > 450) {
-      setTimeout(() => {
-        router.push("/browse");
-      }, 5000);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window?.innerWidth > 450) {
+        setTimeout(() => {
+          router.push("/browse");
+        }, 5000);
+      } else {
+        setTimeout(() => {
+          router.push("/browse");
+        }, 3800);
+      }
     } else {
-      setTimeout(() => {
-        router.push("/browse");
-      }, 3800);
+      console.log("You are on the server");
     }
-  } else {
-    console.log("You are on the server");
-  }
+  }),
+    [];
 
   return (
     <div id="container">

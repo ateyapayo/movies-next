@@ -11,7 +11,6 @@ export let SearchWrapper = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState(false);
   const [selectedAZ, setSelectedAZ] = useState(false);
 
-  const [intro, setIntro] = useState(true);
   const [is404, setIs404] = useState(false);
 
   const resetAllFilters = () => {

@@ -8,6 +8,8 @@ import { useSearchContext } from "@/context/SearchContext";
 export default function HomeContent({ content }) {
   const context = useSearchContext();
 
+  context?.paging?.intro?.setter(true);
+
   const [filteredResults, setFilteredResults] = useState(content);
   const [resultsText, setResultsText] = useState(false);
 
@@ -42,35 +44,6 @@ export default function HomeContent({ content }) {
   useEffect(() => {
     context?.paging?.custom404?.setErrorPage(false);
   });
-
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      // Cancel the navigation attempt
-      event.preventDefault();
-
-      // Modern browsers
-      if ("history" in window) {
-        window.history.pushState(null, "", window.location.href);
-      }
-    };
-
-    const handlePopstate = () => {
-      // Always navigate forward when the user tries to go back
-      if ("history" in window) {
-        window.history.forward();
-      }
-    };
-
-    // Add event listeners
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    window.addEventListener("popstate", handlePopstate);
-
-    // Clean up event listeners on unmount
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-      window.removeEventListener("popstate", handlePopstate);
-    };
-  }, []);
 
   return (
     <>
