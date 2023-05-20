@@ -17,7 +17,7 @@ export default function Footer({}) {
             <footer>
               <div className="container">
                 <p className="text-white text-center">
-                  A React & NextJS 13 PWA - developed by Andrea Piano.
+                  A React & NextJS 13 Web App - developed by Andrea Piano
                 </p>{" "}
                 <br />
                 <p className="text-white text-center ending">
