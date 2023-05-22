@@ -1,7 +1,9 @@
 "use client";
 
-import { useSearchContext } from "@/context/SearchContext";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import { useSearchContext } from "@/context/SearchContext";
 
 export default function Footer({}) {
   const context = useSearchContext();
@@ -17,7 +19,14 @@ export default function Footer({}) {
             <footer>
               <div className="container">
                 <p className="text-white text-center">
-                  A React & NextJS 13 Web App - developed by Andrea Piano
+                  A React & NextJS 13 Web App - developed by{" "}
+                  <Link
+                    className="link-portfolio"
+                    href="https://www.andreapiano.dev/"
+                    target="_BLANK"
+                  >
+                    <b>Andrea Piano</b>
+                  </Link>
                 </p>{" "}
                 <br />
                 <p className="text-white text-center ending">
