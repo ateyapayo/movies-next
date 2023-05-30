@@ -14,7 +14,10 @@ export default function Search({}) {
   return (
     <div className="search-section">
       <div className="bg-transparent search-container">
-        <SearchOutlinedIcon className="text-color text-white self-center" />
+        <SearchOutlinedIcon
+          alt="Search bar icon"
+          className="text-color text-white self-center"
+        />
         <input
           className="bg-transparent text-white"
           value={context?.sharedFilters?.keyword?.getter}

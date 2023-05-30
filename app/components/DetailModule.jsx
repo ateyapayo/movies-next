@@ -116,7 +116,7 @@ export default function DetailModule({ res }) {
         <Image
           className="my-10 w-full"
           src={imagePath + res?.backdrop_path}
-          alt={res?.title}
+          alt={res?.title || res?.name}
           width={1000}
           height={1000}
           priority
