@@ -11,7 +11,7 @@ export default function Loader({ customSize }) {
         pathname == "/browse" ? "loader-card" : "loader-detail"
       }`}
     >
-      <ClipLoader color="#E50914" size={customSize} />
+      <ClipLoader alt="Loader icon" color="#E50914" size={customSize} />
     </div>
   );
 }

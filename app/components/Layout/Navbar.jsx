@@ -33,7 +33,12 @@ export default function Navbar({}) {
               <div className="container navbar-container">
                 <div className="link-logo mr-10 cursor-pointer">
                   <Link href="/browse">
-                    <Image className="logo" width="100" src={NetflixLogo} />
+                    <Image
+                      alt="NextFlix logo"
+                      className="logo"
+                      width="100"
+                      src={NetflixLogo}
+                    />
                   </Link>
                 </div>
               </div>
@@ -55,6 +60,7 @@ export default function Navbar({}) {
                 >
                   <Image
                     onClick={reset}
+                    alt="NextFlix Logo"
                     className="logo"
                     width="100"
                     src={NetflixLogo}
@@ -69,6 +75,7 @@ export default function Navbar({}) {
                     <Image
                       onClick={reset}
                       className="logo"
+                      alt="NextFlix Logo"
                       width="100"
                       src={NetflixLogo}
                     />
@@ -78,6 +85,7 @@ export default function Navbar({}) {
                     <Image
                       onClick={reset}
                       className="logo"
+                      alt="NextFlix Logo"
                       width="100"
                       src={NetflixLogo}
                     />

@@ -24,7 +24,6 @@ export default function DetailModule({ res }) {
   };
 
   const searchedResult = context?.sharedFilters?.keyword?.getter;
-  console.log("THIS IS RES ---> ", res);
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   const vote = Math.round(res?.vote_average / 2);
@@ -34,7 +33,7 @@ export default function DetailModule({ res }) {
   for (let i = 0; i < vote; i++) {
     fullStars.push(
       <div className="rating" key={i}>
-        <StarRateIcon className="star" />
+        <StarRateIcon alt="Full star rate icon" className="star" />
       </div>
     );
   }
@@ -44,7 +43,7 @@ export default function DetailModule({ res }) {
   for (let i = 0; i < 5 - vote; i++) {
     emptyStars.push(
       <div className="rating" key={i}>
-        <StarOutlineIcon className="star" />
+        <StarOutlineIcon alt="Empty star rate icon" className="star" />
       </div>
     );
   }
@@ -57,7 +56,10 @@ export default function DetailModule({ res }) {
             className="flex div-back cursor-pointer"
             onClick={() => router.back()}
           >
-            <ArrowBackIcon className="self-center arrow-back" />
+            <ArrowBackIcon
+              alt="Go back icon"
+              className="self-center arrow-back"
+            />
             <span className="self-center text-white text-back">
               Go back to the search results
             </span>
@@ -126,8 +128,11 @@ export default function DetailModule({ res }) {
           <h1 className="text-white text-md info-line mr-1">
             <b>Genre:</b>
           </h1>
-          {res?.genres?.map((item) => (
-            <h1 className="text-white text-md single-genre info-line">
+          {res?.genres?.map((item, index) => (
+            <h1
+              key={index}
+              className="text-white text-md single-genre info-line"
+            >
               {item?.name}
             </h1>
           ))}

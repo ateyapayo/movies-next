@@ -54,6 +54,7 @@ export default function Movie({
               )}
               <Image
                 className="img-card"
+                priority
                 width={800}
                 height={800}
                 src={imagePath + poster_path}
@@ -64,6 +65,7 @@ export default function Movie({
 
             <div className="sm-screen-card">
               <Image
+                priority
                 width={800}
                 height={800}
                 src={imagePath + poster_path}
